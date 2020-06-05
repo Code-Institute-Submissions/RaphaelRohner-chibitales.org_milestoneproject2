@@ -114,8 +114,9 @@ let chibis = [
 ];
 */
 
-/*-------------------- OpenSea API from chibifighters.com --------------------*/
+/*-------------------- OpenSea API from chibifighters.com --------------------
 const varOpenSea = "https://chibifighters.com/api/opensea/";
+*/
 
 /*-------------------- STEP 05 - Stats API from chibifighters.com jQuery -------------------- */
 
@@ -175,15 +176,19 @@ function findCardByNumber(event) {
         return;
     }    
 
-    $.when (
-        $.getJSON(`https://api.github.com/users/${username}`),
-        $.getJSON(`https://api.github.com/users/${username}/repos`)
+    $.when (        
+        $.getJSON(`https://chibifighters.com/api/stats/`)
     ).then(
-        function(firstResponse, secondResponse ) {
-            var userData = firstResponse[0];
-            var repoData = secondResponse[0];
+        function(chibiApiResponse ) {
+            var cardAmount = chibiApiResponse.types[chibiCardNumber].amount;
+            var cardRarity = chibiApiResponse.types[chibiCardNumber].rarity;
+            var cardBurnt = chibiApiResponse.types[chibiCardNumber].burnt;
+            var cardCollection = chibiApiResponse.types[chibiCardNumber].collection;
+            console.log(cardAmount, cardRarity, cardBurnt, cardCollection);
+            /*
             $("#gh-user-data").html(userInformationHTML(userData));
             $("#gh-repo-data").html(repoInformationHTML(repoData));
+            */
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {
@@ -200,7 +205,7 @@ function findCardByNumber(event) {
         });    
 }
 
-$(document).ready(fetchGitHubInformation);
+$(document).ready(findCardByNumber);
 
 /*-------------------- Stats API from chibifighters.com --------------------*/
 
