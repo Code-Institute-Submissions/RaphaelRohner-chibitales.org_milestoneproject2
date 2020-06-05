@@ -25,7 +25,10 @@
     <!-- CSS3 STYLESHEET INTEGRATION -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-    <title>chibitales.org</title>
+    <!-- JS FILE INTEGRATION -->
+    <script type="text/javascript" src="assets/js/chibis.js"></script>
+
+    <title>chibitales.org - game</title>
 </head>
 <body>
     <header>
@@ -670,6 +673,7 @@
         <div class="row">        
             <!-- GAME CARDSTATISTICS LEFT COLUMN -->
             <div class="col-md-3 bg-color-theme section-column-left">
+                <!-- GAME CARDSTATISTICS LEFT COLUMN HEADING -->
                 <div class="row">
                     <div class="col-12">                        
                         <h3 class="section-heading-left uppercase">
@@ -677,10 +681,16 @@
                         </h3>
                     </div>
                 </div>
+                <!-- GAME CARDSTATISTICS LEFT COLUMN IMAGE -->
                 <div class="row">
                     <div class="col-12">
                         <img class="img-fluid" src="assets/images/select_logo.png" alt="Select Logo">
                     </div>
+                </div>
+                <!-- GAME CARDSTATISTICS LEFT COLUMN SEARCH FORM -->
+                <div class="center-form">
+                    <input type="text" id="cardNumber" class="btn btn-sm btn btn-outline-light" placeholder="search by card number">
+                    <button type="submit" id="cardNumberSubmit" class="btn btn-sm btn btn-outline-light" onclick="findCardByNumber()">Search</button>
                 </div>
             </div>
             
@@ -688,7 +698,7 @@
             <div class="col-md-9 bg-color-header section-column-right">
                 <div class="row">
                     <div class="col">
-                        <h3 class="section-heading-right uppercase">Come, and find me!</h3>
+                        <h3 class="section-heading-right uppercase">Come, find me!</h3>
                     </div>
                 </div>
                 <!-- WHAT IS IT CARDSTATISTICS -->
@@ -704,16 +714,22 @@
                                     What to do
                                 </p>                                
                             </div>
+                            <button onclick="printToDiv('amount')">Card 1</button>
+                            <button onclick="printToDiv(2)">Card 2</button>
+                            <button onclick="printToDiv(3)">Card 3</button>
+                            <div id="chibiData"></div>
                         </div>
                     </div>
-                    <!-- WHAT IS IT RAISE STATS -->
+                    <!-- RETURNED CARD IMAGE AND STATS -->
                     <div class="col-10 offset-1 offset-sm-0 col-sm-6">
                         <div class="row">
-                            <div class="col-2">
-                                <!-- CARD IMAGE -->
-                            </div>
-                            <div class="col-10">
-                                <!-- CARD INFOS -->
+                            <div class="column">
+                                <div id="chibiCardImage" class="col-2">
+                                    <!-- CARD IMAGE -->
+                                </div>
+                                <div id="chibiCardStats" class="col-10">
+                                    <!-- CARD INFOS -->
+                                </div>
                             </div>
                         </div>
                     </div>                    
@@ -733,13 +749,13 @@
                     <li class="list-inline-item">
                         <a href="#aboutusModal" data-toggle="modal" data-target="#aboutusModal">
                             <i class="fas fa-info-circle" aria-hidden="true"></i>
-                            <span class="sr-only">chibitales</span>
+                            <span class="sr-only">About</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#changelogModal" data-toggle="modal" data-target="#changelogModal">
+                        <a href="#changelogModal" data-toggle="modal" data-target="#changelogModal" alt="Change Log">
                             <i class="fas fa-edit" aria-hidden="true"></i>
-                            <span class="sr-only">changelog</span>
+                            <span class="sr-only">Changelog</span>                            
                         </a>
                     </li>                                       
                 </ul>
@@ -901,11 +917,11 @@
         </div>
     </div>
     -->
-
+    
     <!-- Bootstrap external Javascript Links -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
-    
+
 </body>
 </html>
