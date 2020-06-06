@@ -10,8 +10,7 @@
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"> 
     
     <!-- BOOTSTRAP CSS3 INTEGRATION -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
     
     <!-- FONTAWESOME ICONS INTEGRATION -->
     <script src="https://kit.fontawesome.com/8fb5ae9ef1.js" crossorigin="anonymous"></script>
@@ -26,6 +25,7 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
     <!-- jQUERY INTEGRATION -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- JS FILE INTEGRATION -->
@@ -712,15 +712,11 @@
                                 <i class="chibi-infos-icon fa fa-question" aria-hidden="true"></i>
                             </div>
                             <div class="col-10">
-                                <h4 class="chibi-infos-heading uppercase">How to search?</h4>
+                                <h4 id="chibiCardStatus" class="chibi-infos-heading uppercase">Start the search!</h4>
                                 <p>
                                     What to do
                                 </p>                                
                             </div>
-                            <button onclick="printToDiv('amount')">Card 1</button>
-                            <button onclick="printToDiv(2)">Card 2</button>
-                            <button onclick="printToDiv(3)">Card 3</button>
-                            <div id="chibiData"></div>
                         </div>
                     </div>
                     <!-- RETURNED CARD IMAGE AND STATS -->
@@ -918,8 +914,25 @@
                 </div>                
             </div>
         </div>
+                         
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+             
+
     </div>
     -->
     
+    <!-- jQuery external Javascript Links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    
+    <!-- Popper external Javascript Links -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap external Javascript Links -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <!-- JS FILE INTEGRATION -->
+    <script type="text/javascript" src="assets/js/chibis.js"></script>   
+
 </body>
 </html>

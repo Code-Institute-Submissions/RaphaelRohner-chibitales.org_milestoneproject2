@@ -165,16 +165,20 @@ function findCardByNumber(event) {
 
     /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
     var chibiCardNumber = $("#cardNumber").val();
+    console.log(typeof chibiCardNumber);
+    chibiCardNumber = parseInt(chibiCardNumber);
+    console.log(typeof chibiCardNumber);
+    console.log(chibiCardNumber);
 
     /* ----------- CHECK IF INPUT IS IN RANGE -----------> */
     if (chibiCardNumber > 111 || chibiCardNumber < 1) {
-        $("#chibiCardImage").html(`<h2>Please enter an existing card</h2>`);
-        $("#chibiCardStats").html(
-        `<div id="loader">
-            <img src="assets/css/loader.gif" alt="loading..." />
-        </div>`);
+        $("#chibiCardStatus").html(`No card like this!`);        
         return;
-    }    
+    } else if (isNaN(chibiCardNumber)) {
+        $("#chibiCardStatus").html(`Use a number!`);
+    } else {
+        $("#chibiCardStatus").html(`Searching!`);
+    }  
 
     $.when (        
         $.getJSON(`https://chibifighters.com/api/stats/`)
@@ -192,20 +196,20 @@ function findCardByNumber(event) {
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {
-                $(`#gh-user-data`).html(
-                    `<h2>No info found for user $(username)</h2>`);
+                $(`#chibiData`).html(
+                    `<h2>Chibi Fighters seems to be down</h2>`);
             } else if (errorResponse.status === 403) {
                 var resetTime = new Date(errorResponse.getResponseHeader('X-RateLimit-Reset') * 1000);
-                $("#gh-user-data").html(`<h4>Too many requests, please wait until ${resetTime.toLocaleTimeString()}</h4>`);
+                $("#chibiData").html(`<h4>Too many requests, please wait until ${resetTime.toLocaleTimeString()}</h4>`);
             } else {
                 console.log(errorResponse);
-                $("#gh-user-data").html(
+                $("#chibiData").html(
                     `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);            
             }       
         });    
 }
 
-$(document).ready(findCardByNumber);
+$(document).ready();
 
 /*-------------------- Stats API from chibifighters.com --------------------*/
 
