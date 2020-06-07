@@ -1,5 +1,5 @@
-/*-------------------- Card Array for unavailable infos from APIs --------------------
-let chibis = [
+/*-------------------- Card Array for unavailable infos from APIs --------------------*/
+let chibisArray = [
     [1, "Hercules", "Common"],
     [2, "Hood", "Legendary"],
     [3, "Gramps", "Common"],
@@ -110,13 +110,11 @@ let chibis = [
     [108, "Metal Boots+", "Legendary"],
     [109, "Metal Gloves+", "Legendary"],
     [110, "Metal Pants+", "Legendary"],
-    [111, "Metal Helmet+", "Legendary"],
+    [111, "Metal Helmet+", "Legendary"]
 ];
-*/
 
-/*-------------------- OpenSea API from chibifighters.com --------------------
-const varOpenSea = "https://chibifighters.com/api/opensea/";
-*/
+/*-------------------- OpenSea API from chibifighters.com --------------------*/
+let varOpenSea = "https://chibifighters.com/api/opensea/";
 
 /*-------------------- STEP 05 - Stats API from chibifighters.com jQuery -------------------- */
 
@@ -159,50 +157,43 @@ function cardStatsHTML(repos) {
 }
 
 function findCardByNumber(event) {
-    /* ----------- EMPTY DIV ----------- */
+    /* ----------- CLEAR DIV ----------- */
     $("#chibiCardImage").html("");
     $("#chibiCardStats").html("");
 
     /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
-    var chibiCardNumber = $("#cardNumber").val();
-    console.log(typeof chibiCardNumber);
-    chibiCardNumber = parseInt(chibiCardNumber);
-    console.log(typeof chibiCardNumber);
-    console.log(chibiCardNumber);
+    var chibiCardNumber = parseInt($("#cardNumber").val());    
 
     /* ----------- CHECK IF INPUT IS IN RANGE -----------> */
     if (chibiCardNumber > 111 || chibiCardNumber < 1) {
-        $("#chibiCardStatus").html(`No card like this!`);        
+        $("#chibiCardStatus").html(`No such card !!`);
+        $("#cardNumber").val("").attr("placeholer", "search by card number").focus();                           
         return;
     } else if (isNaN(chibiCardNumber)) {
-        $("#chibiCardStatus").html(`Use a number!`);
+        $("#chibiCardStatus").html(`Use a number !!`);
+        $("#cardNumber").val("").attr("placeholer", "search by card number").focus();
+        return;
     } else {
-        $("#chibiCardStatus").html(`Searching!`);
-    }  
+        $("#chibiCardStatus").html(`<img src="assets/css/loader.gif" alt="loading..." /> Searching !!`);
+    }
 
+        // Catch API unavailable --> https://www.denisbouquet.com/stop-ajax-request/                       
+        
     $.when (        
-        $.getJSON(`https://chibifighters.com/api/stats/`)
+    $.getJSON(`https://chibifighters.com/api/stats/`)
     ).then(
         function(chibiApiResponse ) {
             var cardAmount = chibiApiResponse.types[chibiCardNumber].amount;
             var cardRarity = chibiApiResponse.types[chibiCardNumber].rarity;
             var cardBurnt = chibiApiResponse.types[chibiCardNumber].burnt;
             var cardCollection = chibiApiResponse.types[chibiCardNumber].collection;
-            console.log(cardAmount, cardRarity, cardBurnt, cardCollection);
-            /*
-            $("#gh-user-data").html(userInformationHTML(userData));
-            $("#gh-repo-data").html(repoInformationHTML(repoData));
-            */
+            $("#chibiCardStatus").html(`Look at this !!`);
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {
-                $(`#chibiData`).html(
-                    `<h2>Chibi Fighters seems to be down</h2>`);
-            } else if (errorResponse.status === 403) {
-                var resetTime = new Date(errorResponse.getResponseHeader('X-RateLimit-Reset') * 1000);
-                $("#chibiData").html(`<h4>Too many requests, please wait until ${resetTime.toLocaleTimeString()}</h4>`);
+                $("#chibiData").html(
+                    `<h2>Chibi Fighters down</h2>`);
             } else {
-                console.log(errorResponse);
                 $("#chibiData").html(
                     `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);            
             }       
@@ -210,101 +201,3 @@ function findCardByNumber(event) {
 }
 
 $(document).ready();
-
-/*-------------------- Stats API from chibifighters.com --------------------*/
-
-/*-------------------- STEP 04 - Stats API from chibifighters.com NOT WORKING --------------------
-const app = document.getElementById('chibiData')
-
-var request = new XMLHttpRequest()
-request.open('GET', 'https://chibifighters.com/api/stats/', true)
-request.onload = function() {
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.response)
-  if (request.status >= 200 && request.status < 400) {
-    data.forEach(movie => {
-      const card = document.createElement('div')
-      card.setAttribute('class', 'card')
-
-      const h1 = document.createElement('h1')
-      h1.textContent = movie.amount
-
-      const p = document.createElement('p')
-      movie.description = movie.rarity.substring(0, 300)
-      p.textContent = `${movie.rarity}...`
-
-      container.appendChild(card)
-      card.appendChild(h1)
-      card.appendChild(p)
-    })
-  } else {
-    const errorMessage = document.createElement('marquee')
-    errorMessage.textContent = `Gah, it's not working!`
-    app.appendChild(errorMessage)
-  }
-}
-
-request.send()
-*/
-
-/*-------------------- STEP 03 - Stats API from chibifighters.com --------------------
-const baseURL = "https://chibifighters.com/api/stats/";
-
-function getData(type, cb) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", baseURL + type + "/");
-    xhr.send();
-
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            cb(JSON.parse(this.responseText));
-        }
-    };
-}
-
-function printToDiv(type) {
-    getData(type, function(data){
-        document.getElementById("chibiData").innerHTML = `<br><p>Cards: ${data.types['2'].amount}</p>`;
-        console.dir(data.types);
-        console.log(data.types);
-        let test = baseURL + type + "/";
-        console.log(baseURL);
-    });        
-}
-*/
-
-/*-------------------- STEP 02 - Stats API from chibifighters.com --------------------
-function getData(cb) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", "https://chibifighters.com/api/stats/");
-    xhr.send();
-
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            cb(JSON.parse(this.responseText));
-        }
-    };
-}
-
-function printToDiv(chibiData) {
-    document.getElementById("chibiData").innerHTML = chibiData;    
-}
-
-getData(printToDiv);
-
-
-/*-------------------- STEP 01 - Display API in HTML element by DIV ID -------------------- 
-
-var xhr = new XMLHttpRequest();
-
-xhr.open("GET", "https://chibifighters.com/api/stats/");
-xhr.send();
-
-xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("chibiData").innerHTML = this.responseText;
-    }
-};
-*/

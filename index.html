@@ -691,34 +691,24 @@
                     </div>
                 </div>
                 <!-- GAME CARDSTATISTICS LEFT COLUMN SEARCH FORM -->
-                <div class="center-form">
-                    <input type="text" id="cardNumber" class="btn btn-sm btn btn-outline-light" placeholder="search by card number">
-                    <button type="submit" id="cardNumberSubmit" class="btn btn-sm btn btn-outline-light" onclick="findCardByNumber()">Search</button>
+                <div class="row center-form">
+                    <div class="col-9">
+                        <input type="text" id="cardNumber" class="btn btn-sm btn-outline-light" placeholder="search by card number">                        
+                    </div>
+                    <div class="col-3">                        
+                        <button type="submit" id="cardNumberSubmit" class="btn btn-sm btn-outline-light" onclick="findCardByNumber()">Search</button>
+                    </div>
                 </div>
             </div>
             
             <!-- GAME CARDSTATISTICS RIGHT COLUMN -->
             <div class="col-md-9 bg-color-header section-column-right">
                 <div class="row">
-                    <div class="col">
-                        <h3 class="section-heading-right uppercase">Come, find me!</h3>
-                    </div>
-                </div>
-                <!-- WHAT IS IT CARDSTATISTICS -->
-                <div class="row">
-                    <div class="col-10 offset-1 offset-sm-0 col-sm-6">
-                        <div class="row">
-                            <div class="col-2">
-                                <i class="chibi-infos-icon fa fa-question" aria-hidden="true"></i>
-                            </div>
-                            <div class="col-10">
-                                <h4 id="chibiCardStatus" class="chibi-infos-heading uppercase">Start the search!</h4>
-                                <p>
-                                    What to do
-                                </p>                                
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-12">
+                        <h3 id="chibiCardStatus" class="section-heading-right uppercase">Come, find me!</h3>
+                    </div>                                        
+                </div>                
+                <div class="row">                    
                     <!-- RETURNED CARD IMAGE AND STATS -->
                     <div class="col-10 offset-1 offset-sm-0 col-sm-6">
                         <div class="row">
