@@ -118,24 +118,11 @@ let varOpenSea = "https://chibifighters.com/api/opensea/";
 
 /*-------------------- STEP 05 - Stats API from chibifighters.com jQuery -------------------- */
 
-function cardImageHTML(user) {
-    return `
-        <h2>${user.name}
-            <span class="small-name">
-                (@<a href="${user.html_url}" target="_blank">${user.login}</a>)
-            </span>            
-        </h2>
-        <div class="gh-content">
-            <div class="gh-avatar">
-                <a href="${user.html_url}" target="_blank">
-                    <img src="${user.avatar_url}" width="80" height="80" alt="${user.login}" />>
-                </a>
-            </div>
-            <p>Followers: ${user.followers} - Following: ${user.following} - <br> Repos: ${user.public_repos}</p>
-        </div>`;
+function cardImageHTML(chibiCardNumber) {    
+    return `<img src="${"https://chibifighters.s3-us-west-2.amazonaws.com/api/cards/card_" + chibiCardNumber + ".png"}" />`        
 }
 
-function cardStatsHTML(repos) {
+/* function cardStatsHTML(repos) {
     if (repos.length == 0) {
         return `<div class="clearfix repo-list">No repos!</div>`
     }
@@ -155,6 +142,7 @@ function cardStatsHTML(repos) {
                 </ul>
             </div>`;
 }
+*/
 
 function findCardByNumber(event) {
     /* ----------- CLEAR DIV ----------- */
@@ -183,6 +171,11 @@ function findCardByNumber(event) {
     $.getJSON(`https://chibifighters.com/api/stats/`)
     ).then(
         function(chibiApiResponse ) {
+            var cardTypes = chibiApiResponse.types;
+            $("#chibiCardImage").html(cardImageHTML(chibiCardNumber));
+            console.log(chibiCardNumber);
+            console.log(cardTypes);
+
             var cardAmount = chibiApiResponse.types[chibiCardNumber].amount;
             var cardRarity = chibiApiResponse.types[chibiCardNumber].rarity;
             var cardBurnt = chibiApiResponse.types[chibiCardNumber].burnt;
