@@ -324,6 +324,28 @@ footer{
 
 /*------------------------------ MEDIA_QUERIES --------------------------------*/
 
+/*----------XSMALL----------*/
+@media(min-width: 100px){
+    .chibi-stats h4{
+        font-size: 5vw;
+    }
+
+    .chibi-stats p{
+        font-size: 4vw;
+    }
+}
+
+/*----------SMALL----------*/
+@media(min-width: 576px){
+    .chibi-stats h4{
+        font-size: 2.5vw;
+    }
+
+    .chibi-stats p{
+        font-size: 2vw;
+    }
+}
+
 /*----------MEDIUM----------*/
 @media(min-width: 768px){
 
@@ -355,7 +377,14 @@ footer{
     .section-column-right{
         padding-top: 70px;
     }
-      
+
+    .chibi-stats h4{
+        font-size: 1.25vw;
+    }
+
+    .chibi-stats p{
+        font-size: 1vw;
+    }  
 }
 
 /*----------LARGE----------*/
@@ -365,6 +394,14 @@ footer{
         margin-left: 20vw;        
         padding-left: 5em;
     }
+
+    .chibi-stats h4{
+        font-size: 1.0vw;
+    }
+
+    .chibi-stats p{
+        font-size: 0.8vw;
+    }  
 }
 
 /*----------XLARGE----------*/
