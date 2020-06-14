@@ -245,6 +245,14 @@
     color: #2c0a37;
 }
 
+/*---------- CHIBI CARD STATISTICS SECTION ----------*/
+
+.chibi-stats{
+    color:#f4f4f4;
+    background-color: #2c0a37;
+    padding-top: 10px;
+}
+
 /*------------------------------ FOOTER --------------------------------*/
 
 footer{
@@ -357,6 +365,7 @@ footer{
         margin-left: 20vw;        
         padding-left: 5em;
     }
+}
 
 /*----------XLARGE----------*/
 @media(min-width: 1200px){

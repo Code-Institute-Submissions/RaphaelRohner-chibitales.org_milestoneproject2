@@ -22,29 +22,58 @@ function cardInfosHTML(chibiCardNumber, cardTypes) {
 
     /*----------- RETURN CARD AND STATS TO HTML ----------*/
     return `
-        <div class="col-3">
-            <h3>${arrayLine}</h3>      
-            <img src="${"https://chibifighters.s3-us-west-2.amazonaws.com/api/cards/card_" + chibiCardNumber + ".png"}" />
-            <p>ID ${chibiCardNumber} - Existing: ${cardAmount - cardBurnt}</p>
-            <p>ID ${chibiCardNumber} - Created: ${cardAmount}</p>
-            <p>ID ${chibiCardNumber} - Burnt: ${cardBurnt}</p> 
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 chibi-stats">
+            <h4 class="uppercase">${arrayLine} - ID ${chibiCardNumber}</h4>
+            <p>Existing: ${cardAmount - cardBurnt} | Created: ${cardAmount} | Burnt: ${cardBurnt}</p>      
+            <img class="img-fluid" src="${"https://chibifighters.s3-us-west-2.amazonaws.com/api/cards/card_" + chibiCardNumber + ".png"}" />            
+            <p></p>
+            <p></p> 
         </div>`       
 };
 
+/*-------------------- LOAD CHIBI API -------------------- */
+
 function findCardByNumber(event) {
-    /* ----------- CLEAR DIV ----------- */
-    $("#chibiCardImage").html("");
-    $("#chibiCardStats").html("");
 
     /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
     var chibiCardNumber = parseInt($("#cardNumber").val());
 
     /* ----------- CHECK IF INPUT IS IN RANGE -----------> */
     if (chibiCardNumber > 111 || chibiCardNumber < 1) {
+        $("#chibiCardImage").html(`
+            <div class="row">
+                <div class="col-2">
+                    <i class="chibi-infos-icon fa fa-question" aria-hidden="true"></i>
+                </div>
+                <div class="col-10">
+                    <h4 class="chibi-infos-heading uppercase">How to search</h4>
+                    <p>Use the fields on the left to either:</p>
+                    <ul>                        
+                        <li>search by card number</li>
+                        <li>search by card name</li>
+                        <li>or narrow down with the 4 fields</li>
+                    </ul>
+                </div>
+            </div>`)
         $("#chibiCardStatus").html(`No such card !!`);
         $("#cardNumber").val("").attr("placeholer", "search by card number").focus();                           
         return;
     } else if (isNaN(chibiCardNumber)) {
+        $("#chibiCardImage").html(`
+            <div class="row">
+                <div class="col-2">
+                    <i class="chibi-infos-icon fa fa-question" aria-hidden="true"></i>
+                </div>
+                <div class="col-10">
+                    <h4 class="chibi-infos-heading uppercase">How to search</h4>
+                    <p>Use the fields on the left to either:</p>
+                    <ul>                        
+                        <li>search by card number</li>
+                        <li>search by card name</li>
+                        <li>or narrow down with the 4 fields</li>
+                    </ul>
+                </div>
+            </div>`)
         $("#chibiCardStatus").html(`Use a number !!`);
         $("#cardNumber").val("").attr("placeholer", "search by card number").focus();
         return;
@@ -72,4 +101,5 @@ function findCardByNumber(event) {
         });    
 }
 
-$(document).ready();
+/*-------------------- LOAD CHIBI API AUTOMATICALLY WHEN PAGE IS READY -------------------- */
+
