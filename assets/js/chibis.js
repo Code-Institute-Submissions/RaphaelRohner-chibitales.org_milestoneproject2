@@ -3,7 +3,7 @@ function cardInfos(chibiCardNumber) {
     
     let result = chibisArray[chibiCardNumber-1];
     
-    return result.name;
+    return result;
 }
 
 /*-------------------- GENERATE CARD STATS -------------------- */
@@ -13,9 +13,11 @@ function cardInfosHTML(chibiCardNumber, cardTypes) {
     $("#chibiCardStatus").html(`Look at this !!`);
 
     /*----------- GET CARD STATS FROM CHIBI API ----------*/
-    var cardAmount = cardTypes[chibiCardNumber].amount;
-    var cardRarity = cardTypes[chibiCardNumber].rarity;
-    var cardBurnt = cardTypes[chibiCardNumber].burnt;
+    // var x = (typeof x === 'undefined') ? your_default_value : x;
+    let cardAmount = cardTypes[chibiCardNumber].amount;
+    let cardBurnt = cardTypes[chibiCardNumber].burnt;
+    let cardRarity = cardTypes[chibiCardNumber].rarity;
+
 
     /*----------- GET CARD STATS FROM CHIBI ARRAY ----------*/
     let arrayLine = cardInfos(chibiCardNumber);
@@ -23,11 +25,14 @@ function cardInfosHTML(chibiCardNumber, cardTypes) {
     /*----------- RETURN CARD AND STATS TO HTML ----------*/
     return `
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 chibi-stats">
-            <h4 class="uppercase">${arrayLine} - ID ${chibiCardNumber}</h4>
-            <p>Existing: ${cardAmount - cardBurnt} | Created: ${cardAmount} | Burnt: ${cardBurnt}</p>      
+            <h4 class="uppercase">Name: ${arrayLine.name} - ID ${chibiCardNumber}</h4>
+            <p>Source: ${arrayLine.source}</p>
+            <p>Existing: ${cardAmount - cardBurnt} ( Created: ${cardAmount} | Burnt: ${cardBurnt} )</p>      
             <img class="img-fluid" src="${"https://chibifighters.s3-us-west-2.amazonaws.com/api/cards/card_" + chibiCardNumber + ".png"}" />            
-            <p></p>
-            <p></p> 
+            <p>Rarity: ${arrayLine.rarity} | Type: ${arrayLine.type} | Slots: ${arrayLine.slots}</p>
+            <p>Base-Juice: ${arrayLine.base_juice} | -Health: ${arrayLine.base_health} | -Damage: ${arrayLine.base_dmg}</p>
+            <p>Skill: ${arrayLine.skill}</p>
+            <p>Charged Skill: ${arrayLine.charged_skill}</p>
         </div>`       
 };
 
@@ -88,7 +93,8 @@ function findCardByNumber(event) {
     ).then(
         function(chibiApiResponse ) {
             var cardTypes = chibiApiResponse.types;
-            $("#chibiCardImage").html(cardInfosHTML(chibiCardNumber, cardTypes));            
+            $("#chibiCardImage").html(cardInfosHTML(chibiCardNumber, cardTypes));
+            console.log(chibiApiResponse);           
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {
