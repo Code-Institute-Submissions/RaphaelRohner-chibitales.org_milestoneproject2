@@ -12,12 +12,18 @@ function cardInfosHTML(chibiCardNumber, cardTypes) {
     /*----------- Refresh HTML STATUS ----------*/
     $("#chibiCardStatus").html(`Look at this !!`);
 
-    /*----------- GET CARD STATS FROM CHIBI API ----------*/
-    // var x = (typeof x === 'undefined') ? your_default_value : x;
-    let cardAmount = cardTypes[chibiCardNumber].amount;
-    let cardBurnt = cardTypes[chibiCardNumber].burnt;
-    let cardRarity = cardTypes[chibiCardNumber].rarity;
-
+    /*----------- Variables for minted cards ----------*/
+    let cardAmount;
+    let cardBurnt;
+    
+    /*----------- Catch unminted card and return card numbers ----------*/
+    if (chibiCardNumber == 39) {
+        cardAmount = 0;
+        cardBurnt = 0;
+    } else {
+        cardAmount = cardTypes[chibiCardNumber].amount;
+        cardBurnt = cardTypes[chibiCardNumber].burnt;
+    }    
 
     /*----------- GET CARD STATS FROM CHIBI ARRAY ----------*/
     let arrayLine = cardInfos(chibiCardNumber);
@@ -63,6 +69,8 @@ function findCardByNumber(event) {
         $("#chibiCardStatus").html(`No such card !!`);
         $("#cardNumber").val("").attr("placeholer", "search by card number").focus();                           
         return;
+
+    /* ----------- CHECK IF INPUT IS A NUMBER -----------> */    
     } else if (isNaN(chibiCardNumber)) {
         $("#chibiCardImage").html(`
             <div class="row">
@@ -82,6 +90,8 @@ function findCardByNumber(event) {
         $("#chibiCardStatus").html(`Use a number !!`);
         $("#cardNumber").val("").attr("placeholer", "search by card number").focus();
         return;
+
+    /* ----------- LOADER MESSAGE DURIING DELAY -----------> */
     } else {
         $("#chibiCardStatus").html(`<img src="assets/css/loader.gif" alt="loading..." /> Searching !!`);
     }
@@ -93,8 +103,7 @@ function findCardByNumber(event) {
     ).then(
         function(chibiApiResponse ) {
             var cardTypes = chibiApiResponse.types;
-            $("#chibiCardImage").html(cardInfosHTML(chibiCardNumber, cardTypes));
-            console.log(chibiApiResponse);           
+            $("#chibiCardImage").html(cardInfosHTML(chibiCardNumber, cardTypes));           
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {
