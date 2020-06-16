@@ -1,14 +1,14 @@
 /*-------------------- FUNCTION FOR ADDITIONAL INFOS NOT AVAILABLE IN APIs --------------------*/
-function cardInfos(chibiCardNumber) {    
+function cardInfos(chibiCard) {    
     
-    let result = chibisArray[chibiCardNumber-1];
+    let result = chibisArray[chibiCard-1];
     
     return result;
 }
 
 /*-------------------- GENERATE CARD STATS -------------------- */
 
-function cardInfosHTML(chibiCardNumber, cardTypes) {
+function cardInfosHTML(chibiCard, cardTypes) {
     /*----------- Refresh HTML STATUS ----------*/
     $("#chibiCardStatus").html(`Look at this !!`);
 
@@ -17,24 +17,24 @@ function cardInfosHTML(chibiCardNumber, cardTypes) {
     let cardBurnt;
     
     /*----------- Catch unminted card and return card numbers ----------*/
-    if (chibiCardNumber == 39) {
+    if (chibiCard == 39) {
         cardAmount = 0;
         cardBurnt = 0;
     } else {
-        cardAmount = cardTypes[chibiCardNumber].amount;
-        cardBurnt = cardTypes[chibiCardNumber].burnt;
+        cardAmount = cardTypes[chibiCard].amount;
+        cardBurnt = cardTypes[chibiCard].burnt;
     }    
 
     /*----------- GET CARD STATS FROM CHIBI ARRAY ----------*/
-    let arrayLine = cardInfos(chibiCardNumber);
+    let arrayLine = cardInfos(chibiCard);
 
     /*----------- RETURN CARD AND STATS TO HTML ----------*/
     return `
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 chibi-stats">
-            <h4 class="uppercase">Name: ${arrayLine.name} - ID ${chibiCardNumber}</h4>
+            <h4 class="uppercase">Name: ${arrayLine.name} - ID ${chibiCard}</h4>
             <p>Source: ${arrayLine.source}</p>
             <p>Existing: ${cardAmount - cardBurnt} ( Created: ${cardAmount} | Burnt: ${cardBurnt} )</p>      
-            <img class="img-fluid" src="${"https://chibifighters.s3-us-west-2.amazonaws.com/api/cards/card_" + chibiCardNumber + ".png"}" />            
+            <img class="img-fluid" src="${"https://chibifighters.s3-us-west-2.amazonaws.com/api/cards/card_" + chibiCard + ".png"}" />            
             <p>Rarity: ${arrayLine.rarity} | Type: ${arrayLine.type} | Slots: ${arrayLine.slots}</p>
             <p>Base-Juice: ${arrayLine.base_juice} | -Health: ${arrayLine.base_health} | -Damage: ${arrayLine.base_dmg}</p>
             <p>Skill: ${arrayLine.skill}</p>
@@ -61,12 +61,12 @@ function searchInstructions() {
             </div>`
 }
 
-/*-------------------- LOAD CHIBI API -------------------- */
+/*-------------------- CREATE CARD BY NUMBER -------------------- */
 
 function findCardByNumber(event) {
 
     /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
-    var chibiCardNumber = parseInt($("#cardNumber").val());
+    let chibiCardNumber = parseInt($("#cardNumber").val());
 
     /* ----------- CHECK IF INPUT IS IN RANGE -----------> */
     if (chibiCardNumber > 111 || chibiCardNumber < 1) {
@@ -93,8 +93,49 @@ function findCardByNumber(event) {
     $.getJSON(`https://chibifighters.com/api/stats/`)
     ).then(
         function(chibiApiResponse ) {
-            var cardTypes = chibiApiResponse.types;
-            $("#chibiCardImage").html(cardInfosHTML(chibiCardNumber, cardTypes));           
+            let cardTypes = chibiApiResponse.types;
+            let chibiCard = chibiCardNumber;
+            $("#chibiCardImage").html(cardInfosHTML(chibiCard, cardTypes));     
+        },        
+        function(errorResponse) {
+            if(errorResponse.status === 404) {
+                $("#chibiData").html(
+                    `<h2>Chibi Fighters down</h2>`);
+            } else {
+                $("#chibiData").html(
+                    `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);            
+            }       
+        });    
+}
+
+/*-------------------- CREATE CARD BY NAME -------------------- */
+
+function findCardByName(event) {
+
+    /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
+    let chibiCardName = document.getElementById("cardName").value;
+    console.log(chibiCardName);
+    let chibiCard;
+
+    /* ----------- CHECK IF INPUT IS VALID -----------> */
+    for (let i = 1; i < chibisArray.length+1; i++) {
+        if (chibiCardName == chibisArray[i-1].name) {
+            chibiCard = chibisArray[i-1].id;
+        } else if ( i < chibisArray.length+1) {
+            continue;      
+        } else {
+            $("#chibiCardImage").html(searchInstructions);
+            $("#chibiCardStatus").html(`Pick a card !!`);
+            $("#cardName").val("").attr("placeholer", "search by card name").focus();
+        }
+    }
+
+    $.when (        
+    $.getJSON(`https://chibifighters.com/api/stats/`)
+    ).then(
+        function(chibiApiResponse ) {
+            let cardTypes = chibiApiResponse.types;
+            $("#chibiCardImage").html(cardInfosHTML(chibiCard, cardTypes));           
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {
@@ -111,11 +152,9 @@ function findCardByNumber(event) {
 function genDropdowns () {
     let tmpID, tmpVal;    
 
-    for (let i = 0; i < chibisArray.length; i++) {      
-        tmpID = chibisArray[i].id;
-        tmpVal = chibisArray[i].name;
-        // thanks to Milind Anantwar @ https://stackoverflow.com/questions/36128440/how-to-preserve-space-in-html-select-option-listoption-value-hi-thishi-opti for the wrapping hint
-        document.getElementById('cards').innerHTML += `<option data-value=${tmpID} value='${tmpVal}'></option>`;
+    for (let i = 0; i < chibisArray.length; i++) {
+        tmpVal = chibisArray[i].name;        
+        document.getElementById('cards').innerHTML += `<option>${tmpVal}</option>`;
     }
 }
 
