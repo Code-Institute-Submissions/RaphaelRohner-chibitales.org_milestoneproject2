@@ -116,5 +116,17 @@ function findCardByNumber(event) {
         });    
 }
 
-/*-------------------- LOAD CHIBI API AUTOMATICALLY WHEN PAGE IS READY -------------------- */
+/*-------------------- GENERATE SEARCH DROPDOWNS ON LOAD -------------------- */
+function genDropdowns () {
+    let tmpID, tmpVal;    
 
+    for (let i = 0; i < chibisArray.length; i++) {      
+        tmpID = chibisArray[i].id;
+        tmpVal = chibisArray[i].name;
+        // thanks to Milind Anantwar @ https://stackoverflow.com/questions/36128440/how-to-preserve-space-in-html-select-option-listoption-value-hi-thishi-opti for the wrapping hint
+        document.getElementById('cards').innerHTML += `<option data-value=${tmpID} value='${tmpVal}'></option>`;
+    }
+}
+
+/*-------------------- POPULATE SEARCH DROPDOWNS WHEN PAGE IS READY -------------------- */
+$(document).ready(genDropdowns);
