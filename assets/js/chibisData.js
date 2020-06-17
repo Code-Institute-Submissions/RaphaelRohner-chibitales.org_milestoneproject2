@@ -111,3 +111,11 @@ let chibisArray = [
         {id: 110, name: "Metal Pants+", rarity: "Legendary", type: "Legs", slots: "0", source: "Drop - Hunt NM / Shop", base_juice: "6", base_health: "801", base_dmg: "0", skill: "50% bleed protection", charged_skill: "none"},
         {id: 111, name: "Metal Helmet+", rarity: "Legendary", type: "Head", slots: "0", source: "Drop - Hunt NM / Shop", base_juice: "6", base_health: "801", base_dmg: "0", skill: "50% stun protection", charged_skill: "none"},
     ];
+
+    let cardTypesArray = ["all", "Chibi", "Weapon", "Head", "Chest", "Hands", "Legs", "Feet", "Skill", "Trinket"];
+
+    let cardRarityArray = ["all", "Common", "Rare", "Mystic", "Legendary"];
+
+    let cardSourceArray = ["all", "Pack - Genesis", "Lottery - Invest", "Drop - Raids / Shop", "Investment -A1 Fighters", "Drop - Hunt", "Drop - Hunt NM / Shop"];
+
+    let cardQualityArray = ["all", ];

@@ -88,7 +88,8 @@ function findCardByNumber(event) {
     }
 
         // Catch API unavailable --> https://www.denisbouquet.com/stop-ajax-request/                       
-        
+    
+    /* ----------- LOAD CHIBI API -----------> */
     $.when (        
     $.getJSON(`https://chibifighters.com/api/stats/`)
     ).then(
@@ -132,6 +133,7 @@ function findCardByName(event) {
         }
     }
 
+    /* ----------- LOAD CHIBI API -----------> */
     $.when (        
     $.getJSON(`https://chibifighters.com/api/stats/`)
     ).then(
@@ -150,13 +152,45 @@ function findCardByName(event) {
         });    
 }
 
+/*-------------------- CREATE CARDS BY STATS -------------------- */
+function findCardsByStats(event){    
+
+    /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
+    let chibiCardType = $("#cardType :selected").text();
+    console.log(chibiCardType);
+    let chibiCard;    
+
+    /* ----------- LOAD CHIBI API -----------> */
+    $.when (        
+    $.getJSON(`https://chibifighters.com/api/stats/`)
+    ).then(
+        function(chibiApiResponse ) {
+            let cardTypes = chibiApiResponse.types;
+            $("#chibiCardImage").html(cardInfosHTML(chibiCard, cardTypes));           
+        },        
+        function(errorResponse) {
+            if(errorResponse.status === 404) {
+                $("#chibiData").html(
+                    `<h2>Chibi Fighters down</h2>`);
+            } else {
+                $("#chibiData").html(
+                    `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);            
+            }       
+        });
+}
+
 /*-------------------- GENERATE SEARCH DROPDOWNS ON LOAD -------------------- */
 function genDropdowns () {
-    let tmpID, tmpVal;    
+    let tmpID, tmpVal, tmpType;    
 
     for (let i = 0; i < chibisArray.length; i++) {
         tmpVal = chibisArray[i].name;        
         document.getElementById('cards').innerHTML += `<option>${tmpVal}</option>`;
+    }
+
+    for (let i = 0; i < cardTypesArray.length; i++) {
+        tmpType = cardTypesArray[i];        
+        document.getElementById('cardType').innerHTML += `<option>${tmpType}</option>`;
     }
 }
 

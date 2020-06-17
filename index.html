@@ -706,6 +706,8 @@
 
                 <!-- GAME CARDSTATISTICS LEFT COLUMN SEARCH FORM -->                
                 <form class="search-form">
+                    
+                    <!-- SEARCH BY CARD ID -->
                     <div class="form-row">
                         <div class="col col-7 offset-1">
                             <input type="text" id="cardNumber" class="form-control form-control-sm btn btn-outline-light" placeholder="card number">
@@ -714,6 +716,8 @@
                             <button type="submit" id="cardNumberSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardByNumber()"><i class="fas fa-search" aria-hidden="true"></i></button>
                         </div>
                     </div>
+
+                    <!-- SEARCH BY CARD NAME -->
                     <div class="form-row">
                         <div class="col col-7 offset-1">
                             <input type="text" list="cards" id="cardName" class="form-control form-control-sm btn btn-outline-light" placeholder="card name">
@@ -722,6 +726,17 @@
                         </div>
                         <div class="col col-3">
                             <button type="submit" id="cardNameSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardByName()"><i class="fas fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- SEARCH BY CARD PROPERTY - TYPE -->
+                    <div class="form-row">
+                        <div class="col col-7 offset-1">                            
+                            <select type="text" id="cardType" class="form-control form-control-sm btn btn-outline-light">
+                            </select>
+                        </div>
+                        <div class="col col-3">
+                            <button type="submit" id="typesSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardsByStats()"><i class="fas fa-search" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </form>               
