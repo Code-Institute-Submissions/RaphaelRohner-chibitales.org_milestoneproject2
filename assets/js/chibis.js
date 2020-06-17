@@ -114,19 +114,21 @@ function findCardByName(event) {
 
     /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
     let chibiCardName = document.getElementById("cardName").value;
-    console.log(chibiCardName);
     let chibiCard;
 
     /* ----------- CHECK IF INPUT IS VALID -----------> */
-    for (let i = 1; i < chibisArray.length+1; i++) {
-        if (chibiCardName == chibisArray[i-1].name) {
-            chibiCard = chibisArray[i-1].id;
-        } else if ( i < chibisArray.length+1) {
-            continue;      
-        } else {
+    for (let i = 1; i < chibisArray.length+2; i++) {
+        if (i == 112) {
+            console.log(i);
             $("#chibiCardImage").html(searchInstructions);
             $("#chibiCardStatus").html(`Pick a card !!`);
             $("#cardName").val("").attr("placeholer", "search by card name").focus();
+            return
+        } else if (chibiCardName == chibisArray[i-1].name) {
+            chibiCard = chibisArray[i-1].id;
+            break
+        } else {
+            continue   
         }
     }
 
