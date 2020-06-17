@@ -168,10 +168,12 @@ function findCardsByStats(event){
             let cardTypes = chibiApiResponse.types;
 
             for (let i = 1; i < chibisArray.length+1; i++) {
-                if (chibiCardType == "all") {
-                    chibiCard = i;
+                chibiCard = i;
+                if (chibiCardType == "all") {                    
                     document.getElementById('chibiCardImage').innerHTML += cardInfosHTML(chibiCard, cardTypes);
                     console.log(i + chibiCardType);
+                } else if (chibiCardType == chibisArray[i-1].type) {
+                    document.getElementById('chibiCardImage').innerHTML += cardInfosHTML(chibiCard, cardTypes);
                 }
                 // $("#chibiCardImage").html(cardInfosHTML(chibiCard, cardTypes));
             }
