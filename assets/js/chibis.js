@@ -157,8 +157,8 @@ function findCardsByStats(event){
 
     /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
     let chibiCardType = $("#cardType :selected").text();
-    console.log(chibiCardType);
-    let chibiCard;    
+    let chibiCard;
+    $( "#chibiCardImage" ).empty(); 
 
     /* ----------- LOAD CHIBI API -----------> */
     $.when (        
@@ -166,7 +166,15 @@ function findCardsByStats(event){
     ).then(
         function(chibiApiResponse ) {
             let cardTypes = chibiApiResponse.types;
-            $("#chibiCardImage").html(cardInfosHTML(chibiCard, cardTypes));           
+
+            for (let i = 1; i < chibisArray.length+1; i++) {
+                if (chibiCardType == "all") {
+                    chibiCard = i;
+                    document.getElementById('chibiCardImage').innerHTML += cardInfosHTML(chibiCard, cardTypes);
+                    console.log(i + chibiCardType);
+                }
+                // $("#chibiCardImage").html(cardInfosHTML(chibiCard, cardTypes));
+            }
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {

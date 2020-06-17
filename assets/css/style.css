@@ -262,7 +262,9 @@
 .chibi-stats{
     color:#f4f4f4;
     background-color: #2c0a37;
-    padding-top: 10px;
+    border-radius: 15px;
+    margin: 3px;    
+    padding: 10px;
 }
 
 .chibi-stats p{
