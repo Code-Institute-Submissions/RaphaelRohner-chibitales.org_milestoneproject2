@@ -155,9 +155,11 @@ function findCardByName(event) {
 /*-------------------- CREATE CARDS BY STATS -------------------- */
 function findCardsByStats(event){    
 
-    /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
+    /* ----------- DECLARE AND ASSIGN INPUT TO VARIABLES ---------->*/
     let chibiCardType = $("#cardType :selected").text();
+    let chibiCardRarity = $("#cardRarity :selected").text();
     let chibiCard;
+    let matchesArray = [];
     $( "#chibiCardImage" ).empty(); 
 
     /* ----------- LOAD CHIBI API -----------> */
@@ -167,6 +169,23 @@ function findCardsByStats(event){
         function(chibiApiResponse ) {
             let cardTypes = chibiApiResponse.types;
 
+            /* ----------- FILL MATCHES ARRAY WITH TYPE -----------> */
+            for (let i = 1; i < chibisArray.length+1; i++) {
+                chibiCard = i;
+                if (chibiCardType == "all") {                    
+                    matchesArray.push(i);
+                    console.log(matchesArray);
+                } else if (chibiCardType == chibisArray[i-1].type) {
+                    matchesArray.push(i);
+                    console.log(matchesArray);
+                }
+            }
+
+            /* ----------- CHECK MATCHES ARRAY AGAINST RARITY -----------> */
+            /* ----------- CHECK MATCHES ARRAY AGAINST SOURCE -----------> */
+            /* ----------- CHECK MATCHES ARRAY AGAINST Quality -----------> */
+            
+            /* ----------- RETURN MATCHES TO HTML -----------> 
             for (let i = 1; i < chibisArray.length+1; i++) {
                 chibiCard = i;
                 if (chibiCardType == "all") {                    
@@ -176,7 +195,7 @@ function findCardsByStats(event){
                     document.getElementById('chibiCardImage').innerHTML += cardInfosHTML(chibiCard, cardTypes);
                 }
                 // $("#chibiCardImage").html(cardInfosHTML(chibiCard, cardTypes));
-            }
+            } */
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {
@@ -191,7 +210,7 @@ function findCardsByStats(event){
 
 /*-------------------- GENERATE SEARCH DROPDOWNS ON LOAD -------------------- */
 function genDropdowns () {
-    let tmpID, tmpVal, tmpType;    
+    let tmpID, tmpVal, tmpType, tmpRarity;    
 
     for (let i = 0; i < chibisArray.length; i++) {
         tmpVal = chibisArray[i].name;        
@@ -201,6 +220,11 @@ function genDropdowns () {
     for (let i = 0; i < cardTypesArray.length; i++) {
         tmpType = cardTypesArray[i];        
         document.getElementById('cardType').innerHTML += `<option>${tmpType}</option>`;
+    }
+    
+    for (let i = 0; i < cardRarityArray.length; i++) {
+        tmpRarity = cardRarityArray[i];        
+        document.getElementById('cardRarity').innerHTML += `<option>${tmpRarity}</option>`;
     }
 }
 
