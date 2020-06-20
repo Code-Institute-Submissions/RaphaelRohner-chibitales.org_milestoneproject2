@@ -158,6 +158,7 @@ function findCardsByStats(event){
     /* ----------- DECLARE AND ASSIGN INPUT TO VARIABLES ---------->*/
     let chibiCardType = $("#cardType :selected").text();
     let chibiCardRarity = $("#cardRarity :selected").text();
+    let chibiCardSource = $("#cardSource :selected").text();
     let chibiCard;
     let matchesArray = [];
     let matchesArrayTemp = [];
@@ -196,7 +197,6 @@ function findCardsByStats(event){
                 matchesArray = matchesArrayTemp;  // tested              
             }            
             
-            // --> RETURN FILLED MATCHES ARRAY
             /* ----------- CHECK MATCHES ARRAY AGAINST RARITY -----------> */            
             matchesArrayTemp = [];
             for (let i = 0; i < matchesArray.length; i++) {
@@ -208,6 +208,30 @@ function findCardsByStats(event){
                     matchesArrayTemp.push(temp);
                 }                
             } // loop tested
+            
+            if (matchesArrayTemp.length == 0) {
+                matchesArray = [];
+                $("chibiCardImage").html("");
+                $("#chibiCardImage").html(searchInstructions);
+                $("#chibiCardStatus").html(`No such card !!`);
+            } else {
+                matchesArray = matchesArrayTemp;
+            }            
+
+            /* ----------- CHECK MATCHES ARRAY AGAINST SOURCE -----------> */
+            matchesArrayTemp = [];
+            console.log(matchesArray + "Source Start");
+            console.log(matchesArrayTemp + "Source Start");
+            for (let i = 0; i < matchesArray.length; i++) {
+                temp = matchesArray[i];
+                console.log(chibiCardSource);
+                if (chibiCardSource == "all") {
+                    matchesArrayTemp = matchesArray;
+                    break;                
+                } else if (chibiCardSource == chibisArray[temp-1].source) {
+                    matchesArrayTemp.push(temp);
+                }                
+            }
             
             console.log(matchesArray);
             console.log(matchesArrayTemp);
@@ -223,7 +247,6 @@ function findCardsByStats(event){
             console.log(matchesArray);
             console.log(matchesArrayTemp);
 
-            /* ----------- CHECK MATCHES ARRAY AGAINST SOURCE -----------> */
             /* ----------- CHECK MATCHES ARRAY AGAINST Quality -----------> */
             
             /* ----------- RETURN MATCHES TO HTML -----------> */

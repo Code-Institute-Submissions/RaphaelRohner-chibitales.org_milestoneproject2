@@ -116,6 +116,6 @@ let chibisArray = [
 
     let cardRarityArray = ["all", "Common", "Rare", "Mythic", "Legendary"];
 
-    let cardSourceArray = ["all", "Pack - Genesis", "Lottery - Invest", "Drop - Raids / Shop", "Investment -A1 Fighters", "Drop - Hunt", "Drop - Hunt NM / Shop"];
+    let cardSourceArray = ["all", "Pack - Genesis", "Lottery - Invest", "Investment -A1 Fighters", "Drop - Raids / Shop", "Drop - Hunt", "Drop - Hunt / Shop", "Drop - Hunt NM / Shop"];
 
     let cardQualityArray = ["all", ];
