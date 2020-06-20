@@ -114,7 +114,7 @@ let chibisArray = [
 
     let cardTypesArray = ["all", "Chibi", "Weapon", "Head", "Chest", "Hands", "Legs", "Feet", "Skill", "Trinket"];
 
-    let cardRarityArray = ["all", "Common", "Rare", "Mystic", "Legendary"];
+    let cardRarityArray = ["all", "Common", "Rare", "Mythic", "Legendary"];
 
     let cardSourceArray = ["all", "Pack - Genesis", "Lottery - Invest", "Drop - Raids / Shop", "Investment -A1 Fighters", "Drop - Hunt", "Drop - Hunt NM / Shop"];
 

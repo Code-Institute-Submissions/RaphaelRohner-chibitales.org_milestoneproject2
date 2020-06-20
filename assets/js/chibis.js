@@ -160,6 +160,9 @@ function findCardsByStats(event){
     let chibiCardRarity = $("#cardRarity :selected").text();
     let chibiCard;
     let matchesArray = [];
+    let matchesArrayTemp = [];
+    let temp;
+
     $( "#chibiCardImage" ).empty(); 
 
     /* ----------- LOAD CHIBI API -----------> */
@@ -167,35 +170,67 @@ function findCardsByStats(event){
     $.getJSON(`https://chibifighters.com/api/stats/`)
     ).then(
         function(chibiApiResponse ) {
-            let cardTypes = chibiApiResponse.types;
+            let cardTypes = chibiApiResponse.types;            
 
-            /* ----------- FILL MATCHES ARRAY WITH TYPE -----------> */
+            /* ----------- FILL MATCHES ARRAY -----------> */
             for (let i = 1; i < chibisArray.length+1; i++) {
-                chibiCard = i;
-                if (chibiCardType == "all") {                    
-                    matchesArray.push(i);
-                    console.log(matchesArray);
-                } else if (chibiCardType == chibisArray[i-1].type) {
-                    matchesArray.push(i);
-                    console.log(matchesArray);
-                }
+                matchesArray.push(i);
             }
 
-            /* ----------- CHECK MATCHES ARRAY AGAINST RARITY -----------> */
+            /* ----------- CHECK MATCHES ARRAY AGAINST TYPE -----------> */
+            for (let i = 0; i < matchesArray.length; i++) {
+                temp = matchesArray[i];
+                if (chibiCardType == "all") {
+                    matchesArrayTemp = matchesArray; // works in test, odd
+                    break;                
+                } else if (chibiCardType == chibisArray[temp-1].type) {
+                    matchesArrayTemp.push(temp);
+                }                
+            }
+            // matchesArrayTemp =[]; --> test variable
+            if (matchesArrayTemp.length == 0) {
+                // console.log("Artifical zero test"); --> worked
+                $("#chibiCardImage").html(searchInstructions);
+                $("#chibiCardStatus").html(`No such card !!`);
+            } else {
+                matchesArray = matchesArrayTemp;  // tested              
+            }            
+            
+            // --> RETURN FILLED MATCHES ARRAY
+            /* ----------- CHECK MATCHES ARRAY AGAINST RARITY -----------> */            
+            matchesArrayTemp = [];
+            for (let i = 0; i < matchesArray.length; i++) {
+                temp = matchesArray[i];
+                if (chibiCardRarity == "all") {
+                    matchesArrayTemp = matchesArray;
+                    break;                
+                } else if (chibiCardRarity == chibisArray[temp-1].rarity) {
+                    matchesArrayTemp.push(temp);
+                }                
+            } // loop tested
+            
+            console.log(matchesArray);
+            console.log(matchesArrayTemp);
+
+            if (matchesArrayTemp.length == 0) {
+                matchesArray = [];
+                $("chibiCardImage").html("");
+                $("#chibiCardImage").html(searchInstructions);
+                $("#chibiCardStatus").html(`No such card !!`);
+            } else {
+                matchesArray = matchesArrayTemp;
+            }
+            console.log(matchesArray);
+            console.log(matchesArrayTemp);
+
             /* ----------- CHECK MATCHES ARRAY AGAINST SOURCE -----------> */
             /* ----------- CHECK MATCHES ARRAY AGAINST Quality -----------> */
             
-            /* ----------- RETURN MATCHES TO HTML -----------> 
-            for (let i = 1; i < chibisArray.length+1; i++) {
-                chibiCard = i;
-                if (chibiCardType == "all") {                    
-                    document.getElementById('chibiCardImage').innerHTML += cardInfosHTML(chibiCard, cardTypes);
-                    console.log(i + chibiCardType);
-                } else if (chibiCardType == chibisArray[i-1].type) {
-                    document.getElementById('chibiCardImage').innerHTML += cardInfosHTML(chibiCard, cardTypes);
-                }
-                // $("#chibiCardImage").html(cardInfosHTML(chibiCard, cardTypes));
-            } */
+            /* ----------- RETURN MATCHES TO HTML -----------> */
+            for (let i = 0; i < matchesArray.length; i++) {
+                chibiCard = matchesArray[i];
+                document.getElementById('chibiCardImage').innerHTML += cardInfosHTML(chibiCard, cardTypes);                
+            }
         },        
         function(errorResponse) {
             if(errorResponse.status === 404) {
