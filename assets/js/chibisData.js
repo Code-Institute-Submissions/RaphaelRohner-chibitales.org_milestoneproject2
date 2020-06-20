@@ -118,4 +118,4 @@ let chibisArray = [
 
     let cardSourceArray = ["all", "Pack - Genesis", "Lottery - Invest", "Investment -A1 Fighters", "Drop - Raids / Shop", "Drop - Hunt", "Drop - Hunt / Shop", "Drop - Hunt NM / Shop"];
 
-    let cardSetArray = ["all", "Cloth Set", "Leather Set", "Metal Set", "Enforced Cloth Set", "Beginner Cloth Set", "Leather+ Set", "Metal+ Set"];
+    let cardSetArray = ["all", "Cloth Set", "Leather Set", "Metal Set", "Enforced Cloth Set", "Beginner Cloth Set", "Leather+ Set", "Metal+ Set", "none"];
