@@ -245,7 +245,7 @@ function findCardsByStats(event){
 
 /*-------------------- GENERATE SEARCH DROPDOWNS ON LOAD -------------------- */
 function genDropdowns () {
-    let tmpID, tmpVal, tmpType, tmpRarity;    
+    let tmpID, tmpVal, tmpType, tmpRarity, tmpSource;    
 
     for (let i = 0; i < chibisArray.length; i++) {
         tmpVal = chibisArray[i].name;        
@@ -260,6 +260,11 @@ function genDropdowns () {
     for (let i = 0; i < cardRarityArray.length; i++) {
         tmpRarity = cardRarityArray[i];        
         document.getElementById('cardRarity').innerHTML += `<option>${tmpRarity}</option>`;
+    }
+
+    for (let i = 0; i < cardSourceArray.length; i++) {
+        tmpSource = cardSourceArray[i];        
+        document.getElementById('cardSource').innerHTML += `<option>${tmpSource}</option>`;
     }
 }
 
