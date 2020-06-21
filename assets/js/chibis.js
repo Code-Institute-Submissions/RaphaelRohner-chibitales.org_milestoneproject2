@@ -61,6 +61,12 @@ function searchInstructions() {
             </div>`
 }
 
+/*-------------------- CLEAR NAME FIELD ON FOCUS -------------------- */
+
+function clearNameSearch(event) {
+    document.getElementById('cardName').value = "";
+}
+
 /*-------------------- CREATE CARD BY NUMBER -------------------- */
 
 function findCardByNumber(event) {
