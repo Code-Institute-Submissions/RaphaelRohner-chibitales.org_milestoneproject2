@@ -709,7 +709,8 @@
                 <!-- SEARCH BY CARD ID -->
                 <div class="row form-row">
                     <div class="col col-7 offset-1">
-                        <input type="text" id="cardNumber" class="form-control form-control-sm btn btn-outline-light" placeholder="card number">
+                        <!-- thanks to nlucaroni @ https://stackoverflow.com/questions/2530/how-do-you-disable-browser-autocomplete-on-web-form-field-input-tag for the autocomplete tip -->
+                        <input type="text" id="cardNumber" class="form-control form-control-sm btn btn-outline-light" placeholder="card number" autocomplete="off" onfocus="clearIDSearch()">                        
                     </div>
                     <div class="col col-3">
                         <button type="button" id="cardNumberSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardByNumber()"><i class="fas fa-search" aria-hidden="true"></i></button>

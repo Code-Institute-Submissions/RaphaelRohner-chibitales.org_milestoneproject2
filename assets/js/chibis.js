@@ -61,7 +61,10 @@ function searchInstructions() {
             </div>`
 }
 
-/*-------------------- CLEAR NAME FIELD ON FOCUS -------------------- */
+/*-------------------- CLEAR INPUT FIELDs ON FOCUS -------------------- */
+function clearIDSearch(event) {
+    document.getElementById('cardNumber').value = "";
+}
 
 function clearNameSearch(event) {
     document.getElementById('cardName').value = "";
