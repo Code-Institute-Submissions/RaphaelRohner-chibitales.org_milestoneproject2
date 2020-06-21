@@ -269,21 +269,19 @@
     height: 40px;
 }
 
-.form-control-sm {
+.input-group-text {    
     background-color: #2c0a37;
-    color: #fafafa;
+    color: #fafafa;    
+    border: none;
 }
 
-.input-group-text {
-    background-color: #2c0a37;
-    color: #fafafa;
+.input-group-prepend {
+    width: 35%;
 }
 
 .custom-select {
-    background-color: #2c0a37;
-    color: #fafafa;
     border-color: #fafafa;
-    width: 75%;
+    border-radius: 8px;
 }
 
 /*------------------------------ FOOTER --------------------------------*/
