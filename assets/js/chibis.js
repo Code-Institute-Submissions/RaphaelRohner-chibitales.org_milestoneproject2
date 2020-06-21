@@ -113,6 +113,10 @@ function findCardByNumber(event) {
 
 function findCardByName(event) {
 
+    document.getElementById("cardNameSubmit").addEventListener("click", function(event){
+        event.preventDefault()
+    });
+
     /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
     let chibiCardName = document.getElementById("cardName").value;
     let chibiCard;
@@ -133,6 +137,8 @@ function findCardByName(event) {
         }
     }
 
+    $("#chibiCardStatus").html(`<img src="assets/css/loader.gif" alt="loading..." /> Searching !!`);
+    
     /* ----------- LOAD CHIBI API -----------> */
     $.when (        
     $.getJSON(`https://chibifighters.com/api/stats/`)
@@ -164,7 +170,7 @@ function findCardsByStats(event){
     let matchesArray = [];
     let matchesArrayTemp = [];
     let temp;
-
+    $("#chibiCardStatus").html(`<img src="assets/css/loader.gif" alt="loading..." /> Searching !!`);
     $( "#chibiCardImage" ).empty(); 
 
     /* ----------- LOAD CHIBI API -----------> */
