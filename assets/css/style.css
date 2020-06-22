@@ -13,6 +13,7 @@
     font-weight: 300;
     color: #fafafa;
     letter-spacing: 1.3px;
+    font-size: 5vw;
 }
 
 .inline-block{
@@ -356,13 +357,23 @@ footer{
 /*------------------------------ MEDIA_QUERIES --------------------------------*/
 
 /*----------XSMALL----------*/
-@media(min-width: 100px){
+@media(min-width: 200px){
     .chibi-stats h4{
         font-size: 5vw;
     }
 
     .chibi-stats p{
         font-size: 4vw;
+    }
+
+    .general-sub{        
+        font-size:3.5vw;
+    }
+}
+
+@media(min-width: 300px) {
+    .general-sub{        
+        font-size:4.5vw;
     }
 }
 
@@ -374,6 +385,10 @@ footer{
 
     .chibi-stats p{
         font-size: 2vw;
+    }
+
+    .general-sub{        
+        font-size:1.4vw;
     }
 }
 
@@ -415,7 +430,11 @@ footer{
 
     .chibi-stats p{
         font-size: 1vw;
-    }  
+    }
+
+    .general-sub{        
+        font-size:1.5vw;
+    }
 }
 
 /*----------LARGE----------*/
@@ -432,7 +451,11 @@ footer{
 
     .chibi-stats p{
         font-size: 0.8vw;
-    }  
+    }
+
+    .general-sub{        
+        font-size:1.8vw;
+    }
 }
 
 /*----------XLARGE----------*/
@@ -452,9 +475,13 @@ footer{
         line-height: 15px;
     }
 
+    .general-sub{        
+        font-size:1.8vw;
+    }
+
     .footer-btn{
         position: absolute;
         top: 30px;
 
-    }
+    }    
 }
