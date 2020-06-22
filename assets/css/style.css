@@ -308,12 +308,12 @@ footer{
 }
 
 .social-icons {
-    width: 25px;
-    height: 25px;
-    padding: 8px 0;
+    font-size: 6vw;
+    width: 1.6em;
+    height: 1.6em;
+    padding: 0.6em 0;
     border-radius: 50%;
-    font-size: 16px;
-    line-height: 10px;
+    line-height: 0.5em;
     text-align: center;
     color: #2c0a37;
     background: #fafafa;
@@ -389,6 +389,10 @@ footer{
 
     .general-sub{        
         font-size:1.4vw;
+    }
+
+    .social-icons {
+        font-size: 1.8vw;
     }
 }
 
@@ -468,11 +472,7 @@ footer{
     }
 
     .social-icons {
-        width: 38px;
-        height: 38px;
-        padding: 12px 0;
-        font-size: 24px;
-        line-height: 15px;
+        font-size: 2.2vw;
     }
 
     .general-sub{        
