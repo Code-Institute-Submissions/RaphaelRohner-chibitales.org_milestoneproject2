@@ -31,7 +31,7 @@ function cardInfosHTML(chibiCard, cardTypes) {
     /*----------- RETURN CARD AND STATS TO HTML ----------*/
     return `
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 chibi-stats">
-            <h4 class="uppercase">Name: ${arrayLine.name} - ID ${chibiCard}</h4>
+            <h4 class="uppercase">${arrayLine.name} - ID ${chibiCard}</h4>
             <p>Source: ${arrayLine.source}</p>
             <p>Existing: ${cardAmount - cardBurnt} ( Created: ${cardAmount} | Burnt: ${cardBurnt} )</p>      
             <img class="img-fluid" src="${"https://chibifighters.s3-us-west-2.amazonaws.com/api/cards/card_" + chibiCard + ".png"}" />            

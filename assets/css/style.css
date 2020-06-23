@@ -420,7 +420,7 @@ footer{
     .btn-chib,
     .btn-chib-high,
     .dropdown-menu{
-        border: 1px solid #2c0a37;
+        border: 2px solid #f4f4f4;
     }
 
     .section-column-left,
@@ -450,11 +450,11 @@ footer{
     }
 
     .chibi-stats h4{
-        font-size: 0.9vw;
+        font-size: 1.4vw;
     }
 
     .chibi-stats p{
-        font-size: 0.7vw;
+        font-size: 1vw;
     }
 
     .general-sub{        
@@ -469,6 +469,14 @@ footer{
         margin-left: 25vw;        
         padding-left: 10vw;
         
+    }
+
+    .chibi-stats h4{
+        font-size: 1vw;
+    }
+
+    .chibi-stats p{
+        font-size: 0.7vw;
     }
 
     .social-icons {
