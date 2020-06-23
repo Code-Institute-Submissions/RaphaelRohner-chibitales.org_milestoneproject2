@@ -40,10 +40,15 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <!-- Button Buy>
-                                <li class="nav-item active list-inline-item menuitem">
-                                    <a class="btn btn-chib-high" href="https://chibifighters.com/buy" target="_blank" role="button"><i class="fas fa-euro-sign" aria-hidden="true"></i><span> Get Packs</span></a>
-                                </li-->
+
+                                <!-- Button Find -->
+                                <li class="nav-item active list-inline-item menuitem dropdown">
+                                    <a class="btn btn-chib dropdown-toggle" href="find.html" id="navbarDropdownFind" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-search" aria-hidden="true"></i><span> Find</span></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownGame">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="find.html">Find Main</a>
+                                    </div>                                   
+                                </li>
 
                                 <!-- Button Game -->
                                 <li class="nav-item active list-inline-item menuitem dropdown">
@@ -53,7 +58,6 @@
                                     <a class="dropdown-item" href="index.html#rarity">Rarity</a>
                                     <a class="dropdown-item" href="index.html#juice">Juice</a>
                                     <a class="dropdown-item" href="index.html#stats">Stats</a>
-                                    <a class="dropdown-item" href="index.html#cardStatistics">Browse Cards</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="index.html">Game Main</a>
                                     </div>
@@ -85,7 +89,7 @@
                                     </div>
                                 </li-->
 
-                                <!-- Button TRADE>
+                                <!-- Button Trade>
                                 <li class="nav-item list-inline-item menuitem dropdown">
                                     <a class="btn btn-chib dropdown-toggle" href="trade.html" id="navbarDropdownWallet" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fab fa-ethereum" aria-hidden="true"></i><span> Trade</span></a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownWallet">
@@ -190,6 +194,9 @@
                         <p>
                             Ethereum linkable
                         </p>
+                        <p>                        
+                            Tron linkable
+                        </p>
                     </div>
                 </div>
             </div>
@@ -261,7 +268,7 @@
                                 <ul>
                                     <li>Chibi Fighters 2.0 is an Alpha Version</li>
                                     <li>There will be bugs</li>
-                                    <li>It's not free to play</li>
+                                    <li>It's free to play now but hard to progress</li>
                                     <li>and it might not succeed</li>
                                 </ul>
                             </div>
@@ -332,7 +339,7 @@
                             <div class="col-10">
                                 <h4 class="chibi-infos-heading uppercase">Chibis</h4>
                                 <p>
-                                Chibis are your main cards you want to level up
+                                Chibis are your main cards - level them up
                                 </p>
                                 <p>You can equip them with</p>
                                 <ul>
@@ -432,7 +439,7 @@
                                 You can easily recognize the rarity of a card:
                                 </p>
                                 <ul>
-                                    <li>Green frame = unique card</li>
+                                    <li>Card IDs 34-42 = unique card</li>
                                     <li>Golden frame = legendary card</li>
                                     <li>Red frame = mythic card</li>
                                     <li>Blue frame = rare card</li>
@@ -548,14 +555,15 @@
                                 </p>
                                 <p>So, here's how to get it:</p>
                                 <ul>
-                                    <li>Each card has its basic Juice of 19</li>
-                                    <li>Every five levels the card gains one Juice</li>
-                                    <li>At Level 6 you will have 20</li>
-                                    <li>At Level 11 you will have 21</li>
+                                    <li>A Chibi's basic Juice is 21</li>
+                                    <li>Max 80 for rare Chibis at lvl 100</li>
+                                    <li>Max 160 for mythic Chibis at lvl 150</li>
+                                    <li>Max 320 for legendary Chibis at lvl 200</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
                     <!-- GOOD TO KNOW JUICE -->
                     <div class="col-10 offset-1 offset-sm-0 col-sm-6">
                         <div class="row">
@@ -565,13 +573,13 @@
                             <div class="col-10">
                                 <h4 class="chibi-infos-heading uppercase">Good to know</h4>
                                 <p>
-                                Keep in mind: Juice of equipable cards is taken from the Chibi's Juice.
+                                Keep in mind: Juice on equipable cards is taken from your Chibi's Juice.
                                 </p>
                                 <ul>
-                                    <li>A high level weapon sounds fantastic, but:</li>
-                                    <li>If you level it up, it will take more Juice to equip</li>
-                                    <li>Which means you might not be able to equip another item.</li>
-                                    <li>And more low level items make your Chibi stronger than one high level item.</li>
+                                    <li>Currently you can equip 50% maxed gear</li>
+                                    <li>and 50% half maxed gear</li>
+                                    <li>Gear juice raises by 1 every 5 lvl</li>
+                                    <li>Chibi juice raises scaled, depending on the level</li>
                                 </ul>
                             </div>
                         </div>
@@ -679,147 +687,7 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- GAME CARD STATISTICS SECTION -->
-    <section class="container-fluid" id="cardStatistics">        
-        <div class="row">
-
-            <!-- GAME CARDSTATISTICS LEFT COLUMN -->
-            <div class="col-md-4 col-lg-3 bg-color-theme section-column-left">
-
-                <!-- GAME CARDSTATISTICS LEFT COLUMN HEADING -->
-                <div class="row">
-                    <div class="col-12">                        
-                        <h3 class="section-heading-left uppercase">
-                            Browse Cards
-                        </h3>
-                    </div>
-                </div>
-
-                <!-- GAME CARDSTATISTICS LEFT COLUMN IMAGE -->
-                <div class="row">
-                    <div class="col-12">
-                        <img class="img-fluid" src="assets/images/select_logo.png" alt="Select Logo">
-                    </div>
-                </div>
-
-                <!-- GAME CARDSTATISTICS LEFT COLUMN SEARCH FORM -->                
-                                    
-                <!-- SEARCH BY CARD ID -->
-                <div class="row form-row">
-                    <div class="col col-7 offset-1">
-                        <!-- thanks to nlucaroni @ https://stackoverflow.com/questions/2530/how-do-you-disable-browser-autocomplete-on-web-form-field-input-tag for the autocomplete tip -->
-                        <input type="text" id="cardNumber" class="form-control form-control-sm btn btn-outline-light" placeholder="card number" autocomplete="off" onfocus="clearIDSearch()">                        
-                    </div>
-                    <div class="col col-3">
-                        <button type="button" id="cardNumberSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardByNumber()"><i class="fas fa-search" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-
-                <hr style="margin:3px">
-
-                <!-- SEARCH BY CARD NAME -->
-                <div class="form-row">
-                    <div class="col col-7 offset-1">
-                        <input type="text" list="cards" name="cards" id="cardName" class="form-control form-control-sm btn btn-outline-light" placeholder="card name" onfocus="clearNameSearch()">
-                        <datalist id="cards">
-                        </datalist>
-                    </div>
-                    <div class="col col-3">
-                        <button type="button" id="cardNameSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardByName()"><i class="fas fa-search" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-
-                <hr style="margin:10px">
-
-                <!-- SEARCH BY CARD PROPERTY - TYPE -->
-                <div class="form-row">
-                    <div class="col col-10 offset-1">
-                        <div class="input-group input-group-sm mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="cardType">Type:</label>
-                            </div>
-                            <select class="custom-select" id="cardType"></select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEARCH BY CARD PROPERTY - RARITY -->
-                <div class="form-row">
-                    <div class="col col-10 offset-1">
-                        <div class="input-group input-group-sm mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="cardRarity">Rarity:</label>
-                            </div>
-                            <select class="custom-select" id="cardRarity"></select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEARCH BY CARD PROPERTY - SOURCE -->                    
-                <div class="form-row">
-                    <div class="col col-10 offset-1">
-                        <div class="input-group input-group-sm mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="cardSource">Source:</label>
-                            </div>
-                            <select class="custom-select" id="cardSource"></select>
-                        </div>
-                    </div>
-                </div>                    
-
-                <!-- SEARCH BY CARD PROPERTY - SET -->
-                <div class="form-row">
-                    <div class="col col-10 offset-1">
-                        <div class="input-group input-group-sm mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="cardSet">Set:</label>
-                            </div>
-                            <select class="custom-select form-control form-control-sm btn btn-outline-light" id="cardSet"></select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEARCH BY CARD PROPERTY - SEARCH BUTTON -->
-                <div class="form-row">
-                    <div class="col col-5 offset-6">
-                        <button type="button" id="setSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardsByStats()"><i class="fas fa-search" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-                              
-            </div>
-
-            <!-- GAME CARDSTATISTICS RIGHT COLUMN -->
-            <div class="col-md-8 col-lg-9 bg-color-header section-column-right">
-                <div class="row">
-                    <div class="col">
-                        <h3 id="chibiCardStatus" class="section-heading-right uppercase">Come, find me!</h3>
-                    </div>
-                </div>
-
-                <!-- TO BE REPLACED WITH RETURNED CARD IMAGE AND STATS -->
-                <div id="chibiCardImage" class="row">
-                    <div class="col-10 offset-1 offset-sm-0 col-sm-6">
-                        <div class="row">
-                            <div class="col-2">
-                                <i class="chibi-infos-icon fa fa-question" aria-hidden="true"></i>
-                            </div>
-                            <div class="col-10">
-                                <h4 class="chibi-infos-heading uppercase">How to search</h4>
-                                <p>Use the fields on the left to either:</p>
-                                <ul>                        
-                                    <li>search by card number</li>
-                                    <li>search by card name</li>
-                                    <li>or narrow down with the 4 fields</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>                                        
-                </div>
-            </div>            
-        </div>
-    </section>
+    </section>    
 
     <!-- FOOTER -->
     <footer class="container-fluid">

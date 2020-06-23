@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"> 
+    
+    <!-- BOOTSTRAP CSS3 INTEGRATION -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    
+    <!-- FONTAWESOME ICONS INTEGRATION -->
+    <script src="https://kit.fontawesome.com/8fb5ae9ef1.js" crossorigin="anonymous"></script>
+    
+    <!-- GOOGLE FONTS INTEGRATION -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+    <!-- HOVER EFFECTS INTEGRATION -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+    
+    <!-- CSS3 STYLESHEET INTEGRATION -->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
+    <title>chibitales.org - find</title>
+</head>
+<body>
+    <header>
+        <!-- NAVIGATION -->
+        <div class="row">
+            <div class="col">                
+                <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+
+                                <!-- Button Find -->
+                                <li class="nav-item active list-inline-item menuitem dropdown">
+                                    <a class="btn btn-chib dropdown-toggle" href="find.html" id="navbarDropdownFind" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-search" aria-hidden="true"></i><span> Find</span></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownGame">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="find.html">Find Main</a>
+                                    </div>                                   
+                                </li>
+
+                                <!-- Button Game -->
+                                <li class="nav-item active list-inline-item menuitem dropdown">
+                                    <a class="btn btn-chib dropdown-toggle" href="index.html" id="navbarDropdownGame" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-home" aria-hidden="true"></i><span> Game</span></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownGame">                                    
+                                    <a class="dropdown-item" href="index.html#types">Card Types</a>
+                                    <a class="dropdown-item" href="index.html#rarity">Rarity</a>
+                                    <a class="dropdown-item" href="index.html#juice">Juice</a>
+                                    <a class="dropdown-item" href="index.html#stats">Stats</a>
+                                    <a class="dropdown-item" href="index.html#cardStatistics">Browse Cards</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="index.html">Game Main</a>
+                                    </div>
+                                </li>
+
+                                <!-- Button Play>
+                                <li class="nav-item list-inline-item menuitem dropdown">
+                                    <a class="btn btn-chib dropdown-toggle" href="play.html" id="navbarDropdownPlay" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gamepad" aria-hidden="true"></i><span> Play</span></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownPlay">
+                                    <a class="dropdown-item" href="play.html#rewards">Rewards</a>
+                                    <a class="dropdown-item" href="play.html#hunt">Hunt</a>
+                                    <a class="dropdown-item" href="play.html#raids">Raids</a>
+                                    <a class="dropdown-item" href="play.html#match">Match</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="play.html">Play Main</a>
+                                    </div>
+                                </li-->
+
+                                <!-- Button Setup>
+                                <li class="nav-item list-inline-item menuitem dropdown">
+                                    <a class="btn btn-chib dropdown-toggle" href="setup.html" id="navbarDropdownSetup" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench" aria-hidden="true"></i><span> Setup</span></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownSetup">
+                                    <a class="dropdown-item" href="setup.html#create">Create Account</a>
+                                    <a class="dropdown-item" href="setup.html#buy">Buy Packs</a>
+                                    <a class="dropdown-item" href="setup.html#open">Open Packs</a>
+                                    <a class="dropdown-item" href="setup.html#collection">Collection</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="setup.html">Setup Main</a>
+                                    </div>
+                                </li-->
+
+                                <!-- Button Trade>
+                                <li class="nav-item list-inline-item menuitem dropdown">
+                                    <a class="btn btn-chib dropdown-toggle" href="trade.html" id="navbarDropdownWallet" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fab fa-ethereum" aria-hidden="true"></i><span> Trade</span></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownWallet">
+                                    <a class="dropdown-item" href="trade.html#metamask">MetaMask</a>
+                                    <a class="dropdown-item" href="trade.html#connectmm">Connect MM</a>
+                                    <a class="dropdown-item" href="trade.html#mint">Mint Chibis</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="trade.html">Trade Main</a>
+                                    </div>
+                                </li-->
+
+                                <!-- Button Support>
+                                <li class="nav-item active list-inline-item menuitem">
+                                    <a class="btn btn-chib-high" href="https://www.patreon.com/bePatron?u=26912501&redirect_uri=https%3A%2F%2Fchibifighters.com%2Faccount&utm_medium=widget" target="_blank" role="button"><i class="fas fa-coins" aria-hidden="true"></i><span> Support</span></a>
+                                </li-->
+                            </ul>                    
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- HEADLINE -->
+        <div  class="row no-gutters">
+
+            <!-- Hero Image -->
+            <a  href="https://chibifighters.com/game" target="_blank" class="col-md-3 logo">            
+            </a>
+            
+            <!-- Headlines -->
+            <div class="col-md-9 headline  bg-color-header uppercase">
+                <div class="col">
+                    <h1>chibitales.org</h1>
+                    <h2>chibi fighters 2.0</h2>
+                    <h3>- all you need to know -</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- GAME CARD STATISTICS SECTION -->
+    <section class="container-fluid" id="cardStatistics">        
+        <div class="row">
+
+            <!-- GAME CARDSTATISTICS LEFT COLUMN -->
+            <div class="col-md-4 col-lg-3 bg-color-theme section-column-left">
+
+                <!-- GAME CARDSTATISTICS LEFT COLUMN HEADING -->
+                <div class="row">
+                    <div class="col-12">                        
+                        <h3 class="section-heading-left uppercase">
+                            Browse Cards
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- GAME CARDSTATISTICS LEFT COLUMN IMAGE -->
+                <div class="row">
+                    <div class="col-12">
+                        <img class="img-fluid" src="assets/images/select_logo.png" alt="Select Logo">
+                    </div>
+                </div>
+
+                <!-- GAME CARDSTATISTICS LEFT COLUMN SEARCH FORM -->                
+                                    
+                <!-- SEARCH BY CARD ID -->
+                <div class="row form-row">
+                    <div class="col col-7 offset-1">
+                        <!-- thanks to nlucaroni @ https://stackoverflow.com/questions/2530/how-do-you-disable-browser-autocomplete-on-web-form-field-input-tag for the autocomplete tip -->
+                        <input type="text" id="cardNumber" class="form-control form-control-sm btn btn-outline-light" placeholder="card number" autocomplete="off" onfocus="clearIDSearch()">                        
+                    </div>
+                    <div class="col col-3">
+                        <button type="button" id="cardNumberSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardByNumber()"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                <hr style="margin:3px">
+
+                <!-- SEARCH BY CARD NAME -->
+                <div class="form-row">
+                    <div class="col col-7 offset-1">
+                        <input type="text" list="cards" name="cards" id="cardName" class="form-control form-control-sm btn btn-outline-light" placeholder="card name" onfocus="clearNameSearch()">
+                        <datalist id="cards">
+                        </datalist>
+                    </div>
+                    <div class="col col-3">
+                        <button type="button" id="cardNameSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardByName()"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                <hr style="margin:10px">
+
+                <!-- SEARCH BY CARD PROPERTY - TYPE -->
+                <div class="form-row">
+                    <div class="col col-10 offset-1">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="cardType">Type:</label>
+                            </div>
+                            <select class="custom-select" id="cardType"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEARCH BY CARD PROPERTY - RARITY -->
+                <div class="form-row">
+                    <div class="col col-10 offset-1">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="cardRarity">Rarity:</label>
+                            </div>
+                            <select class="custom-select" id="cardRarity"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEARCH BY CARD PROPERTY - SOURCE -->                    
+                <div class="form-row">
+                    <div class="col col-10 offset-1">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="cardSource">Source:</label>
+                            </div>
+                            <select class="custom-select" id="cardSource"></select>
+                        </div>
+                    </div>
+                </div>                    
+
+                <!-- SEARCH BY CARD PROPERTY - SET -->
+                <div class="form-row">
+                    <div class="col col-10 offset-1">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="cardSet">Set:</label>
+                            </div>
+                            <select class="custom-select form-control form-control-sm btn btn-outline-light" id="cardSet"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEARCH BY CARD PROPERTY - SEARCH BUTTON -->
+                <div class="form-row">
+                    <div class="col col-5 offset-6">
+                        <button type="button" id="setSubmit" class="form-control form-control-sm btn btn-outline-light" onclick="findCardsByStats()"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                              
+            </div>
+
+            <!-- GAME CARDSTATISTICS RIGHT COLUMN -->
+            <div class="col-md-8 col-lg-9 bg-color-header section-column-right">
+                <div class="row">
+                    <div class="col">
+                        <h3 id="chibiCardStatus" class="section-heading-right uppercase">Come, find me!</h3>
+                    </div>
+                </div>
+
+                <!-- TO BE REPLACED WITH RETURNED CARD IMAGE AND STATS -->
+                <div id="chibiCardImage" class="row">
+                    <div class="col-10 offset-1 offset-sm-0 col-sm-6">
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="chibi-infos-icon fa fa-question" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-10">
+                                <h4 class="chibi-infos-heading uppercase">How to search</h4>
+                                <p>Use the fields on the left to either:</p>
+                                <ul>                        
+                                    <li>search by card number</li>
+                                    <li>search by card name</li>
+                                    <li>or narrow down with the 4 fields</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>                                        
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container-fluid">
+
+        <!-- SOCIAL LINKS -->
+        <div id="footer-details" class="row">            
+
+            <!-- CHIBITALES.ORG SOCIAL LINKS -->
+            <div class="col-sm-4">
+                <h5 class="uppercase general-sub">chibitales.org social</h5>
+                <ul class="list-inline social-links">
+                    <li class="list-inline-item">
+                        <a href="#aboutusModal" data-toggle="modal" data-target="#aboutusModal">
+                            <i class="fas fa-info-circle social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">About</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#changelogModal" data-toggle="modal" data-target="#changelogModal" alt="Change Log">
+                            <i class="fas fa-edit social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">Changelog</span>                            
+                        </a>
+                    </li>                                       
+                </ul>
+            </div>
+
+            <!-- CHIBI FIGHTERS 2.0 SUPPORT LINKS -->
+            <div class="col-sm-4">
+                <h5 class="uppercase general-sub">Support Chibi Fighters 2.0</h5>
+                <ul class="list-inline social-links">
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://chibifighters.com/buy">
+                            <i class="fas fa-shopping-cart social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">Facebook</span>
+                        </a>
+                    </li>                                                           
+                </ul>                            
+            </div>
+
+            <!-- CHIBI FIGHTERS 2.0 SOCIAL LINKS -->
+            <div class="col-sm-4">
+                <h5 class="uppercase general-sub">Chibi Fighters 2.0 Social</h5>
+                <ul class="list-inline social-links">
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://discordapp.com/channels/417957376625475584/417957377153826817">
+                            <i class="fab fa-discord social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://t.me/chibifighters">
+                            <i class="fab fa-telegram social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://twitter.com/chibifighters">
+                            <i class="fab fa-twitter social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">LinkedIn</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://www.youtube.com/channel/UCD0MdbqmK1mwHtViDcyg41Q">
+                            <i class="fab fa-youtube social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">Pinterest</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">                     
+                        <a target="_blank" href="https://de-de.facebook.com/chibifighters/">
+                            <i class="fab fa-facebook social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://de.linkedin.com/company/chibi-fighters">
+                            <i class="fab fa-linkedin social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">Youtube</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://www.instagram.com/p/BjPj9hdAoQz/">
+                            <i class="fab fa-instagram social-icons" aria-hidden="true"></i>
+                            <span class="sr-only">Youtube</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL ABOUT US -->
+    <div class="modal" tabindex="-1" role="dialog" id="aboutusModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">From players for players</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Hi there and welcome to chibitales.org!</p>
+                    <p>This page is the result of being obsessed with Chibi Fighters since it came to the Tron blockchain. We are not associated in any other way with the owners of Chibi Fighters, except that we got the OK to make this fanpage.</p>
+                    <p>We try to keep the page as up to date as possible, but it's a one person project and completly voluntary. So, sorry in advance if some information is missing or outdated.</p>
+                    <p>If you want to give feedback or input, please contact Rorschach on either Discord or Telegram for now.</p>
+                    <p> One last word. Putting money into Crypto is a high risk, just spend what you are willing to lose.</p>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHANGELOG -->
+    <div class="modal" tabindex="-1" role="dialog" id="changelogModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Changelog</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>27.04.2020</h3>
+                    <p>navbar adjusted for l and xl device sizes</p>
+                    <p>footer design changed</p>
+                    <p>timer reset times changed</p>
+                    <p>hunt updates integrated</p>
+                    <h3>26.04.2020</h3>
+                    <p>layout fixed for tablets</p>
+                    <p>favicon added</p>
+                    <p>play - rewards section added</p>
+                    <p>play - adventures section removed</p>
+                    <p>added about us modal</p>
+                    <p>added changelog modal</p>
+                    <p>removed newsletter dummy</p>
+                    <p>removed claim snap shot from setup - create account</p>
+                    <p>removed kickstarter links, added patron links</p>
+                    <p>relaunch chibitales.org</p>
+                    <h3>29.03.2020</h3>
+                    <p>due to review further development on hold</p>
+                    <p>first release via chibitales.org linked to GitHub</p>
+                    <h3>06.03.2020</h3>
+                    <p>chibitales.org starts as a Code Institute Milestone project</p>
+                </div>                
+            </div>
+        </div>
+    </div>
+        
+    <!-- Modal NEWSLETTER -->
+    <div class="modal" tabindex="-1" role="dialog" id="contactModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sign up for our Chibi 2 Newsletter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="Email">Email Address</label>
+                            <input type="email" class="form-control" id="Email" placeholder="just a dummy form for now" aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">Your email won't be shared by us.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="EmailRepeat">Repeat Email</label>
+                            <input type="email" class="form-control" id="EmailRepeat" placeholder="just a dummy form for now">
+                        </div>                        
+                        <button type="submit" class="btn btn-sm btn btn-outline-light">Submit</button>
+                    </form>
+                </div>                
+            </div>
+        </div>
+    </div>
+    
+    <!-- jQUERY external Javascript Link -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>    
+    
+    <!-- Bootstrap external Javascript Link -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Popper external Javascript Link -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+    <!-- JS CHIBIS DATA FILE INTEGRATION -->
+    <script type="text/javascript" src="assets/js/chibisData.js"></script>
+    
+    <!-- JS CHIBIS FILE INTEGRATION -->
+    <script type="text/javascript" src="assets/js/chibis.js"></script>
+    
+</body>
+</html>
