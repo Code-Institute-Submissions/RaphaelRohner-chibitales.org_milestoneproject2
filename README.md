@@ -1,96 +1,118 @@
 # chibitales.org - Milestone Project 2 - Interactive Frontend Development
-While the first chibitales.org Milestone Project aimed to create an easy to use websites providing all relevant information to successfully play the game Chibi Fighters 2.0, the version intends to deliver interactivity to the website.
+Bringing chibitales.org to the next level, the website for players of Chibi Fighters 2.0 goes interactive.
 
-As a player, the thing you are probably missing most is a central point where you can find statistics about the game's content. Whilemost of this information is available it is located in different locations and it is hard to get an overview.
+After providing players and potential players with information around the game in the first Milestone project, now they can search for their favorite cards.
 
-This project will collect the available information from two Chibi Fighters APIs and combine it with manually added information, giving players a source to find all available statistics regarding the game.
-
-Via an email service integration it will be possible to contact the developer and potentially sign up for a newsletter.
+The new search page provides them with all available information about the cards and where they come from.
 
 ## UX
-The new interactive section on chibitales.org will give players and potential players the opportunity to browse the game cards and their statistical information.
+As a potential player, I want to get a visual impression of the game, to find out if I like the game's style and what to expect.
 
-To get an impression on the planned visualization, take a look into the mockUps folder. There will be three different user stories for this section: 
+As a new player, I want to find out where to get my first cards from, so I can progress within the game.
 
-* For users who want to get a visual and information on a specific card: Searching card-information by card-name
+As an advanced player, I want to find out more about the cards I am still missing, so I can start collecting them.
 
-* For users who want to get a visual and information on a specific card: Searching card-information by card-number
+As a senior player, I want to be able to take at least a look at the cards I can't get, to complete the game's feeling.
 
-* For users who want to see a collection of card-types: Searching by selecting one to four card-features
 
-    * Narrow the results by card-class
-        * Chibis
-        * Weapons
-        * Head
-        * Chest
-        * Gloves
-        * Legs
-        * Boots
-        * Skills
-        * Trinkets
+The new interactive page allows players and potential players to browse the game cards and their statistical information in multiple ways: 
 
-    * Narrow the results by card-rarity
-        * Common
-        * Rare
-        * Mythic
-        * Legendary
+* For users who want to get a visual and information on a specific card: Searching card-information by card-name. Just type the name in and click the search button.
 
-    * Narrow the results by card-source
-        * Other rewards
-        * Genesis Packs
-        * Hunt
-        * Raids
-        * Conquer
-        * Shop
+* For users who want to get a visual and information on a specific card: Searching card-information by card-number.  Just type the ID in and click the search button.
 
-    * Narrow the results by set-quality
-        * Cloth
-        * Leather
-        * Metal
-        * Beginner Cloth
-        * Leather+
-        * Metal+
+* For users who want to see a collection of card-types: Searching by selecting none to four card-features.  Just select the  and click the search button.
 
-Another user story As a user who got interested, has questions, wants to contribute or to be kept updated  modal
+To get an impression on the visualization, take a look into the wireframes folder.
 
 ## Features
-* The hero image and colors used provide a visual impression of the game.
+* Clicking "Find" in the navigation brings you to the new search.
 
-* The Navigation gives access to any section within two clicks.
+* Inthe left hand section you can define the search. In the right hand section the results are presented.
 
-* The footer provides all relevant social media links, sorted by relevance in reading direction.
+* Search by ID allows to search all existing and potential existing cards by card ID. Submit checks if the input is valid and responds accordingly if not.
+
+* Search by name allows you to freely type in and select out of the existing and potential existing card's names. Submit checks if the input is valid and responds accordingly if not.
+
+* Both fields reset the value when clicked into again to avoid the necessity of manual deletion of the previous input.
  
-* Potential players, which in this case are users and investors alike, find general information about the game and all necessary warnings on the main page.
+* The four search but statsfields allow users to narrow down the search by selecting predefined values. There is no way for wrong input.
 
-* Play contains four sections giving tipps on how to play the game:
+* Submit will 
+  * either return all cards matching the selection
+  * or a notification that this combination does not exist
 
-  * Adventures
-  * Raids
-  * Hunt
-  * Match
+* You can search without any input and see all existing cards or narrow down by
+  * Card type
+  * Card Rarity
+  * The source of the card, which is the way how to get it
+  * Sets
 
-* Setup guides users through the process of setting up an account and starting the game.
+* The search result is a styled and fully responsive div element which contains:
+  * Card Name and ID
+  * The existing, created and burnt amount of this card
+  * The card image, which is the main visual focus
+  * Information about the card's rarity, its type and how many slots the card offers
+  * Information about the card's base juice, health and damage
+  * The skill the card offers
+  * The charged skill the card offers
 
-* Trade gives all necessary information on how to create an Ethereum wallet and how to use it.
+* The search combines accessing the Chibi API, the online stored card image and a javaScript object containing information, which is not available elsewhere.
 
-* Across all pages there are directly accessible links to buy game packs and to support via kickstarter.
+* Depending on the defined search the loading process can take a moment. Users will see a message that the page is loading, when this is the case.
 
-* Given all overview Sections are located under dropdown menues and their minor relevance the link is placed at the bottom of the dropdown.
+* The search function is the main focus of this project. But there are some other changes in comparison to the first Milestoneproject:
+  * The footer is re-done and completly responsive now
+  * The focus was taken from directing users to invest, since this is not part of the game any more
+  * The game is changing fast, very fast indeed. Some information was updated, but unfortunately not all.
+  * This submit won't be published via GitHub.
+  * Instead I will publish a version with more additions shortly after handing the project in.
+  * The submission itself won't be changed though.
 
 ## Future Features
 
 * chibitales.org is meant to be work in progress and an ongoing project over the course.
-* Possible features are legion:
-  * A better responsive design for tablet sized devices
-  * An adjusted navigation menu for more and different content
-  * Explanatory tooltips for gamer's jargon via JS
-  * An overview about editions and cards from the games database
-  * Game statistic page / database
+* Possible features are legion. To name a few:
+  * Integration of a newsletter
+  * Integration of an email contact
+  * Video tutorials on how to get into and how to play the game
+  * Additional tooltip information on keywords
+  * More statistics on scaling stats
+  * More detailed information on where to find cards 
 
+## Technologies used
+
+* HTML5
+  * to build the site
+* CSS3
+  * to style the site
+* javaScript
+  * to build the search function
+* jQuery 3.5.1.min
+  * to build the search function and reduce coding
+* Bootstrap 4.3.1.min
+  * to style the site and make it responsive
+* FontAwesome
+  * to get all those lovely icons
+* Popper
+  * will be used for tooltips
+* Hover 2.3.1.min
+  * will be used for tooltips
+* Google Fonts
+  * to get all those lovely fonts
 
 ## Testing
 All HTML5 code is tested via the W3C Markup Validation Service.\
 All CSS3 code is tested via the W3C CSS Validation Service.\
+All javaScript and jQuery code was tested manually.\
+* this was tested intensly but not with Jasmine
+  * any possible wrong input was tested
+    * try to type in anything that isn't 1 - 111 into the search by ID field and submit.
+    * try to type in anything that is not part of the list into the search by name field and submit.
+    * search for a non existing combination in search by stats e.g. a rare trinket, a legendary skill, a commen A1 investment
+  * any possible wrong output was tested
+    * hard to prove, but there is none
+
 Navigation and responsive design was tested on laptop with the latest versions of:
 * Google Chrome
 * Firefox
@@ -102,11 +124,17 @@ Navigation and responsive design was tested on:
 * Mobile Alacatel A1
 * Amazon Fire tablet
 
+### Hard /impossible to solve
+* Styling datasets and select the same way
+* Dealing with missing cards and stats and a rudimentary API
+* Creating a search for all the possible options
+  * I considered a free search field but stopped following this path. It would not offer all the available options implemented now.
+  * e.g. a user would not be able to search for legendary trinkets
+
 ## Deployment
 The domain chibitales.org was purchased on godaddy.com.\
-The open project repository is available under https://github.com/RaphaelRohner/chibitales.org_milestoneproject1.git.\
-The project is deployed under https://raphaelrohner.github.io/chibitales.org_milestoneproject1/ \
-The project is published under the domain https://chibitales.org as a GitHub page.
+The open project repository is available under https://github.com/RaphaelRohner/chibitales.org_milestoneproject2 \
+The project is deployed under https://raphaelrohner.github.io/chibitales.org_milestoneproject2/ \
 
 ## Credits
 
@@ -122,4 +150,4 @@ Graphics, content and colors: Chibifighters.com by Gary Runke
 ### Acknowledgements
 Major Thanks @ Gary for the OK to use Chibi Fighters graphics and for the game itself! Let's make it a success - it's so cool!\
 Thanks @terminali for https://stackoverflow.com/a/42794613 and how to remove a box-shadow!\
-And thumbs up to everyone @Slack, w3schools and stackoverflow. Without your answers to other problems, I wouldn't have figured out the solutions to mine!
+And big thumbs up to everyone @Slack, w3schools and stackoverflow. Without your answers to other problems, I wouldn't have figured out the solutions to mine!

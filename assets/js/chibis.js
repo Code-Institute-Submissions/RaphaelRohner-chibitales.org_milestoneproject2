@@ -132,8 +132,7 @@ function findCardByName(event) {
 
     /* ----------- CHECK IF INPUT IS VALID -----------> */
     for (let i = 1; i < chibisArray.length+2; i++) {
-        if (i == 112) {
-            console.log(i);
+        if (i === 112) {
             $("#chibiCardImage").html(searchInstructions);
             $("#chibiCardStatus").html(`Pick a card !!`);
             $("#cardName").val("").attr("placeholer", "search by card name").focus();
@@ -200,13 +199,12 @@ function findCardsByStats(event){
                 if (chibiCardType == "all") {
                     matchesArrayTemp = matchesArray; // works in test, odd
                     break;                
-                } else if (chibiCardType == chibisArray[temp-1].type) {
+                } else if (chibiCardType === chibisArray[temp-1].type) {
                     matchesArrayTemp.push(temp);
                 }                
             }
             // matchesArrayTemp =[]; --> test variable
-            if (matchesArrayTemp.length == 0) {
-                // console.log("Artifical zero test"); --> worked
+            if (matchesArrayTemp.length === 0) {
                 $("#chibiCardImage").html(searchInstructions);
                 $("#chibiCardStatus").html(`No such card !!`);
             } else {
@@ -238,44 +236,34 @@ function findCardsByStats(event){
             matchesArrayTemp = [];
             for (let i = 0; i < matchesArray.length; i++) {
                 temp = matchesArray[i];
-                console.log(chibiCardSource);
-                if (chibiCardSource == "all") {
+                if (chibiCardSource === "all") {
                     matchesArrayTemp = matchesArray;
                     break;                
-                } else if (chibiCardSource == chibisArray[temp-1].source) {
+                } else if (chibiCardSource === chibisArray[temp-1].source) {
                     matchesArrayTemp.push(temp);
                 }                
-            }
-            
-            console.log(matchesArray);
-            console.log(matchesArrayTemp);
+            };
 
-            if (matchesArrayTemp.length == 0) {
+            if (matchesArrayTemp.length === 0) {
                 matchesArray = [];
                 $("chibiCardImage").html("");
                 $("#chibiCardImage").html(searchInstructions);
                 $("#chibiCardStatus").html(`No such card !!`);
             } else {
                 matchesArray = matchesArrayTemp;
-            }
-            console.log(matchesArray);
-            console.log(matchesArrayTemp);
+            };
 
             /* ----------- CHECK MATCHES ARRAY AGAINST SET -----------> */
             matchesArrayTemp = [];
             for (let i = 0; i < matchesArray.length; i++) {
                 temp = matchesArray[i];
-                console.log(chibiCardSet);
-                if (chibiCardSet == "all") {
+                if (chibiCardSet === "all") {
                     matchesArrayTemp = matchesArray;
                     break;                
-                } else if (chibiCardSet == chibisArray[temp-1].set) {
+                } else if (chibiCardSet === chibisArray[temp-1].set) {
                     matchesArrayTemp.push(temp);
                 }                
-            }
-            
-            console.log(matchesArray);
-            console.log(matchesArrayTemp);
+            };
 
             if (matchesArrayTemp.length == 0) {
                 matchesArray = [];
@@ -284,9 +272,7 @@ function findCardsByStats(event){
                 $("#chibiCardStatus").html(`No such card !!`);
             } else {
                 matchesArray = matchesArrayTemp;
-            }
-            console.log(matchesArray);
-            console.log(matchesArrayTemp);
+            };
             
             /* ----------- RETURN MATCHES TO HTML -----------> */
             for (let i = 0; i < matchesArray.length; i++) {
