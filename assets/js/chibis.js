@@ -39,8 +39,8 @@ function cardInfosHTML(chibiCard, cardTypes) {
             <p>Base-Juice: ${arrayLine.base_juice} | -Health: ${arrayLine.base_health} | -Damage: ${arrayLine.base_dmg}</p>
             <p>Skill: ${arrayLine.skill}</p>
             <p>Charged Skill: ${arrayLine.charged_skill}</p>
-        </div>`       
-};
+        </div>`;       
+}
 
 /*-------------------- SEARCH INSTRUCTIONS -------------------- */
 function searchInstructions() {
@@ -58,7 +58,7 @@ function searchInstructions() {
                         <li>or narrow down with the 4 fields</li>
                     </ul>
                 </div>
-            </div>`
+            </div>`;
 }
 
 /*-------------------- CLEAR INPUT FIELDs ON FOCUS -------------------- */
@@ -123,7 +123,7 @@ function findCardByNumber(event) {
 function findCardByName(event) {
 
     document.getElementById("cardNameSubmit").addEventListener("click", function(event){
-        event.preventDefault()
+        event.preventDefault();
     });
 
     /* ----------- ASSIGN INPUT TO VARIABLE ---------->*/
@@ -136,12 +136,12 @@ function findCardByName(event) {
             $("#chibiCardImage").html(searchInstructions);
             $("#chibiCardStatus").html(`Pick a card !!`);
             $("#cardName").val("").attr("placeholer", "search by card name").focus();
-            return
+            return;
         } else if (chibiCardName == chibisArray[i-1].name) {
             chibiCard = chibisArray[i-1].id;
-            break
+            break;
         } else {
-            continue   
+            continue;   
         }
     }
 
@@ -242,7 +242,7 @@ function findCardsByStats(event){
                 } else if (chibiCardSource === chibisArray[temp-1].source) {
                     matchesArrayTemp.push(temp);
                 }                
-            };
+            }
 
             if (matchesArrayTemp.length === 0) {
                 matchesArray = [];
@@ -251,7 +251,7 @@ function findCardsByStats(event){
                 $("#chibiCardStatus").html(`No such card !!`);
             } else {
                 matchesArray = matchesArrayTemp;
-            };
+            }
 
             /* ----------- CHECK MATCHES ARRAY AGAINST SET -----------> */
             matchesArrayTemp = [];
@@ -263,7 +263,7 @@ function findCardsByStats(event){
                 } else if (chibiCardSet === chibisArray[temp-1].set) {
                     matchesArrayTemp.push(temp);
                 }                
-            };
+            }
 
             if (matchesArrayTemp.length == 0) {
                 matchesArray = [];
@@ -272,7 +272,7 @@ function findCardsByStats(event){
                 $("#chibiCardStatus").html(`No such card !!`);
             } else {
                 matchesArray = matchesArrayTemp;
-            };
+            }
             
             /* ----------- RETURN MATCHES TO HTML -----------> */
             for (let i = 0; i < matchesArray.length; i++) {
